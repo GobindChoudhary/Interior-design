@@ -1,0 +1,2 @@
+/* App-level overrides — keep minimal, prefer Tailwind */
+.toggle-on { background-color: #E31B23 !important; }
