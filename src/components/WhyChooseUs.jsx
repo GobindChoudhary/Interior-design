@@ -145,16 +145,14 @@ const marqueeAnimation = `
 `;
 
 const WhyChooseUs = () => (
-  <section
-    className="bg-white relative overflow-hidden my-8 py-6 sm:my-10 sm:py-10 lg:my-16 lg:py-14"
-  >
+  <section className="bg-white relative overflow-hidden my-8 py-6 sm:my-10 sm:py-10 lg:my-16 lg:py-14">
     <style>{marqueeAnimation}</style>
     <div
       className="whitespace-nowrap flex min-w-max"
       style={{
-        width: '200%',
-        animation: 'marquee 22s linear infinite',
-        gap: '8px',
+        width: "200%",
+        animation: "marquee 22s linear infinite",
+        gap: "8px",
       }}
     >
       {[...features, ...features].map((f, i) => (
@@ -165,9 +163,9 @@ const WhyChooseUs = () => (
           <div
             className="flex items-center justify-center"
             style={{
-              width: 'clamp(56px, 12vw, 110px)',
-              height: 'clamp(56px, 12vw, 110px)',
-              margin: '0 8px',
+              width: "clamp(56px, 12vw, 110px)",
+              height: "clamp(56px, 12vw, 110px)",
+              margin: "0 8px",
             }}
           >
             {f.svg ? (
@@ -176,16 +174,16 @@ const WhyChooseUs = () => (
                 alt={f.label}
                 className="object-contain"
                 style={{
-                  width: 'clamp(48px, 10vw, 96px)',
-                  height: 'clamp(48px, 10vw, 96px)',
-                  margin: '0 8px',
+                  width: "clamp(48px, 10vw, 96px)",
+                  height: "clamp(48px, 10vw, 96px)",
+                  margin: "0 8px",
                 }}
               />
             ) : (
               React.cloneElement(f.icon, {
-                width: 'clamp(48, 10vw, 96)',
-                height: 'clamp(48, 10vw, 96)',
-                style: { margin: '0 8px' },
+                width: "clamp(48, 10vw, 96)",
+                height: "clamp(48, 10vw, 96)",
+                style: { margin: "0 8px" },
               })
             )}
           </div>
