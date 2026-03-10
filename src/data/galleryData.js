@@ -26,7 +26,7 @@ import proj828            from '../assets/imgi_23_1681205226697c70c0213a9dd-HLKT
 
 export const gallerySections = [
   {
-    title: 'End-to-end offerings',
+    title: 'Popular Interior Designs for Every Room',
     href: '#',
     items: [
       { img: interiorWall,    alt: 'Modern wall unit living room' },
@@ -40,8 +40,8 @@ export const gallerySections = [
     ],
   },
   {
-    title: 'Modular Kitchen Designs',
-    href: '#',
+    title: 'Inspiring Kitchen Designs',
+    href: '/home-interiors/modular-kitchen',
     items: [
       { img: kitchenVividWhite, alt: 'Vivid white L-shaped kitchen' },
       { img: kitchenEcru,       alt: 'Elegant ecru beige kitchen' },
@@ -56,8 +56,8 @@ export const gallerySections = [
     ],
   },
   {
-    title: 'Living Room & Bedroom Designs',
-    href: '#',
+    title: 'Bedroom Designs That Spell Comfort',
+    href: '/home-interiors/bedroom',
     items: [
       { img: interiorWarm,    alt: 'Warm earthy living room' },
       { img: interiorClassic, alt: 'Classic luxury bedroom' },
@@ -68,8 +68,8 @@ export const gallerySections = [
     ],
   },
   {
-    title: 'Wardrobe Designs',
-    href: '#',
+    title: 'Wardrobe Designs That Wow',
+    href: '/home-interiors/wardrobe',
     items: [
       { img: proj835,         alt: 'Sliding wardrobe design' },
       { img: proj836,         alt: 'Walk-in wardrobe' },
