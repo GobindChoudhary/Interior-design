@@ -226,7 +226,7 @@ const Navbar = () => {
               <a
                 href="#"
                 className={`flex items-center gap-1 px-4 h-full text-[14px] font-medium transition-colors whitespace-nowrap 
-                  ${link.name === "Design Gallery" ? "text-[#212529] group-hover:text-[#e71c24]" : "text-[#212529] hover:text-[#e71c24]"}
+                  ${(link.name === "Design Gallery" || link.name === "Guides") ? "text-[#212529] group-hover:text-[#e71c24]" : "text-[#212529] hover:text-[#e71c24]"}
                 `}
               >
                 {link.name}
@@ -234,7 +234,7 @@ const Navbar = () => {
                   <svg
                     viewBox="0 0 10 6"
                     className={`w-2.5 h-2.5 mt-0.5 fill-current transition-transform duration-300
-                      ${link.name === "Design Gallery" ? "text-gray-400 group-hover:text-[#e71c24] group-hover:-rotate-180" : "text-gray-400 group-hover:text-[#e71c24]"}
+                      ${(link.name === "Design Gallery" || link.name === "Guides") ? "text-gray-400 group-hover:text-[#e71c24] group-hover:-rotate-180" : "text-gray-400 group-hover:text-[#e71c24]"}
                     `}
                   >
                     <path d="M0 0l5 6 5-6z" />
@@ -242,12 +242,12 @@ const Navbar = () => {
                 )}
 
                 {/* Active Red Bottom Border on hover */}
-                {link.name === "Design Gallery" && (
+                {(link.name === "Design Gallery" || link.name === "Guides") && (
                   <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#e71c24] opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 )}
               </a>
 
-              {/* DROPDOWN MENU */}
+              {/* DESIGN GALLERY DROPDOWN */}
               {link.name === "Design Gallery" && (
                 <div className="absolute top-[70px] -left-8 bg-white shadow-[0_4px_16px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-[550px] p-6 pt-2 border-t-[3px] border-[#e71c24] z-50 cursor-auto">
                   <div className="grid grid-cols-2 gap-x-8">
@@ -271,6 +271,37 @@ const Navbar = () => {
                         </span>
                       </Link>
                     ))}
+                  </div>
+                </div>
+              )}
+
+              {/* GUIDES DROPDOWN */}
+              {link.name === "Guides" && (
+                <div className="absolute top-[70px] left-0 bg-white shadow-[0_4px_16px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-[500px] p-8 border-t-[3px] border-[#e71c24] z-50 cursor-auto">
+                  <div className="grid grid-cols-2 gap-x-6 gap-y-5">
+                    <Link to="/design-ideas/modular-kitchen-design-ideas" className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">Modular Kitchen Design Ideas</Link>
+                    <Link to="/design-ideas/wardrobe-design-ideas" className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">Wardrobe Design Ideas</Link>
+                    <Link to="/design-ideas/bedroom-design-ideas" className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">Bedroom Design Ideas</Link>
+                    <Link to="/design-ideas/living-room-interior-design-ideas" className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">Living Room Interior Design Ideas</Link>
+                    <Link to="/design-ideas/home-interior-design-ideas" className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">Home Interior Design Ideas</Link>
+                    <Link to="/design-ideas/home-decor-trends" className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">Home Decor Trends</Link>
+                    <Link to="/design-ideas/bathroom-design-ideas" className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">Bathroom Design Ideas</Link>
+                  </div>
+                </div>
+              )}
+
+              {/* MORE DROPDOWN */}
+              {link.name === "More" && (
+                <div className="absolute top-[70px] left-0 bg-white shadow-[0_4px_16px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-[220px] p-5 border-t-[3px] border-[#e71c24] z-50 cursor-auto">
+                  <div className="flex flex-col gap-y-4">
+                    <Link to="/customer-stories" className="flex items-center gap-2 text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">
+                      <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+                      Customer Stories
+                    </Link>
+                    <Link to="/blogs" className="flex items-center gap-2 text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">
+                      <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+                      Blogs
+                    </Link>
                   </div>
                 </div>
               )}
@@ -346,11 +377,37 @@ const Navbar = () => {
                           : `/home-interiors/${item.name.toLowerCase().replace(/\s+/g, '-')}`
                       }
                       className="flex items-center gap-3 py-2 text-[13px] text-gray-600 hover:text-[#e71c24]"
+                      onClick={() => setMobileOpen(false)} // Close menu on click
                     >
                       <div className="w-6 h-6 scale-75">{item.icon}</div>
                       {item.name}
                     </Link>
                   ))}
+                </div>
+              )}
+              {/* GUIDES Mobile Dropdown implementation */}
+              {link.name === "Guides" && (
+                <div className="bg-gray-50 px-6 py-2 border-b border-[#f8f8f8] flex flex-col">
+                  <Link to="/design-ideas/modular-kitchen-design-ideas" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]" onClick={() => setMobileOpen(false)}>Modular Kitchen Design Ideas</Link>
+                  <Link to="/design-ideas/wardrobe-design-ideas" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]" onClick={() => setMobileOpen(false)}>Wardrobe Design Ideas</Link>
+                  <Link to="/design-ideas/bedroom-design-ideas" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]" onClick={() => setMobileOpen(false)}>Bedroom Design Ideas</Link>
+                  <Link to="/design-ideas/living-room-interior-design-ideas" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]" onClick={() => setMobileOpen(false)}>Living Room Interior Design Ideas</Link>
+                  <Link to="/design-ideas/home-interior-design-ideas" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]" onClick={() => setMobileOpen(false)}>Home Interior Design Ideas</Link>
+                  <Link to="/design-ideas/home-decor-trends" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]" onClick={() => setMobileOpen(false)}>Home Decor Trends</Link>
+                  <Link to="/design-ideas/bathroom-design-ideas" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]" onClick={() => setMobileOpen(false)}>Bathroom Design Ideas</Link>
+                </div>
+              )}
+              {/* MORE Mobile Dropdown implementation */}
+              {link.name === "More" && (
+                <div className="bg-gray-50 px-6 py-2 border-b border-[#f8f8f8] flex flex-col">
+                  <Link to="/customer-stories" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24] flex items-center gap-2" onClick={() => setMobileOpen(false)}>
+                    <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+                    Customer Stories
+                  </Link>
+                  <Link to="/blogs" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24] flex items-center gap-2" onClick={() => setMobileOpen(false)}>
+                    <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+                    Blogs
+                  </Link>
                 </div>
               )}
             </div>

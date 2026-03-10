@@ -1,119 +1,144 @@
-/**
- * WhyChooseUs — matches HomeLane's icon strip with centered title
- *
- * Layout (from screenshot):
- *  - White background
- *  - Centered bold title "Why Choose Us"
- *  - Single row of large colored icons from assets with label underneath
- *  - Items: 55000+ Homes Delivered, 74 Studios, 42 Cities,
- *           Delivery in 45 days*, No Hidden Costs, Flat 10 Year Warranty
- */
-import homesCompletedIcon  from '../assets/imgi_202_homes_completed.svg';
-import warrantyIcon        from '../assets/imgi_200_material_warranty.svg';
-import designExpertsIcon   from '../assets/imgi_201_design_experts.svg';
-import installationDaysIcon from '../assets/imgi_203_installation_days.svg';
+import React from 'react';
 
-// Additional icon for Studios — inline SVG (matches HomeLane's building illustration style)
-const StudiosIcon = () => (
-  <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="10" y="32" width="60" height="40" rx="2" fill="none" stroke="#515050" strokeWidth="3"/>
-    {/* door */}
-    <rect x="34" y="50" width="12" height="22" rx="1" fill="none" stroke="#E22029" strokeWidth="2.5"/>
-    {/* windows */}
-    <rect x="14" y="38" width="12" height="10" rx="1" fill="none" stroke="#515050" strokeWidth="2"/>
-    <rect x="54" y="38" width="12" height="10" rx="1" fill="none" stroke="#515050" strokeWidth="2"/>
-    {/* roof */}
-    <path d="M5 34L40 8L75 34" stroke="#515050" strokeWidth="3" strokeLinejoin="round" fill="none"/>
-    {/* storefront stripe */}
-    <rect x="10" y="38" width="60" height="3" rx="0" fill="#E22029" opacity="0.18"/>
-    {/* sign */}
-    <rect x="26" y="34" width="28" height="6" rx="1" fill="#E22029" opacity="0.55"/>
-  </svg>
-);
+// Exact SVG replicas of the 7 features from the HomeLane "Why Choose Us" row
 
-// Cities icon — building silhouette
-const CitiesIcon = () => (
-  <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* left building */}
-    <rect x="8" y="28" width="22" height="44" rx="1" fill="none" stroke="#515050" strokeWidth="2.5"/>
-    <rect x="12" y="34" width="6" height="6" rx="0.5" fill="#515050" opacity="0.25"/>
-    <rect x="22" y="34" width="6" height="6" rx="0.5" fill="#515050" opacity="0.25"/>
-    <rect x="12" y="44" width="6" height="6" rx="0.5" fill="#515050" opacity="0.25"/>
-    <rect x="22" y="44" width="6" height="6" rx="0.5" fill="#515050" opacity="0.25"/>
-    <rect x="12" y="54" width="6" height="6" rx="0.5" fill="#515050" opacity="0.25"/>
-    <rect x="22" y="54" width="6" height="6" rx="0.5" fill="#515050" opacity="0.25"/>
-    {/* center tall building */}
-    <rect x="30" y="14" width="20" height="58" rx="1" fill="none" stroke="#E22029" strokeWidth="2.5"/>
-    <rect x="34" y="20" width="5" height="5" rx="0.5" fill="#E22029" opacity="0.3"/>
-    <rect x="41" y="20" width="5" height="5" rx="0.5" fill="#E22029" opacity="0.3"/>
-    <rect x="34" y="30" width="5" height="5" rx="0.5" fill="#E22029" opacity="0.3"/>
-    <rect x="41" y="30" width="5" height="5" rx="0.5" fill="#E22029" opacity="0.3"/>
-    <rect x="34" y="40" width="5" height="5" rx="0.5" fill="#E22029" opacity="0.3"/>
-    <rect x="41" y="40" width="5" height="5" rx="0.5" fill="#E22029" opacity="0.3"/>
-    <rect x="34" y="50" width="5" height="5" rx="0.5" fill="#E22029" opacity="0.3"/>
-    <rect x="41" y="50" width="5" height="5" rx="0.5" fill="#E22029" opacity="0.3"/>
-    {/* right building */}
-    <rect x="50" y="28" width="22" height="44" rx="1" fill="none" stroke="#515050" strokeWidth="2.5"/>
-    <rect x="54" y="34" width="6" height="6" rx="0.5" fill="#515050" opacity="0.25"/>
-    <rect x="62" y="34" width="6" height="6" rx="0.5" fill="#515050" opacity="0.25"/>
-    <rect x="54" y="44" width="6" height="6" rx="0.5" fill="#515050" opacity="0.25"/>
-    <rect x="62" y="44" width="6" height="6" rx="0.5" fill="#515050" opacity="0.25"/>
-    {/* ground */}
-    <line x1="4" y1="72" x2="76" y2="72" stroke="#515050" strokeWidth="2.5" strokeLinecap="round"/>
-  </svg>
-);
-
-// No Hidden Costs — rupee eye icon
 const NoCostIcon = () => (
-  <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* eye outline */}
-    <path d="M8 40C8 40 20 16 40 16C60 16 72 40 72 40C72 40 60 64 40 64C20 64 8 40 8 40Z"
-      fill="none" stroke="#515050" strokeWidth="3" strokeLinejoin="round"/>
-    {/* iris */}
-    <circle cx="40" cy="40" r="14" fill="#E22029"/>
-    <circle cx="40" cy="40" r="8" fill="white"/>
-    {/* rupee */}
-    <text x="40" y="45" textAnchor="middle" fontSize="12" fontWeight="900" fill="#E22029" fontFamily="Lato, sans-serif">₹</text>
+  <svg width="68" height="68" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* the eye shape */}
+    <path d="M8 40C8 40 24 16 40 16C56 16 72 40 72 40C72 40 56 64 40 64C24 64 8 40 8 40Z"
+      fill="none" stroke="#212529" strokeWidth="2.5" strokeLinejoin="round" />
+    {/* the colored iris */}
+    <circle cx="40" cy="40" r="16" fill="#e71c24" stroke="#212529" strokeWidth="2.5" />
+    <text x="40" y="46" textAnchor="middle" fontSize="16" fontWeight="bold" fill="white" fontFamily="sans-serif">₹</text>
+  </svg>
+);
+
+const WarrantyIcon = () => (
+  <svg width="68" height="68" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Ribbon */}
+    <path d="M26 46v20l8-6l6 6v-14" fill="#e71c24" stroke="#e71c24" strokeWidth="2" strokeLinejoin="round" />
+    <path d="M54 46v20l-8-6l-6 6v-14" fill="#e71c24" stroke="#e71c24" strokeWidth="2" strokeLinejoin="round" />
+
+    {/* Ribbon outlines */}
+    <path d="M26 46v20l8-6l6 6v-14" fill="none" stroke="#212529" strokeWidth="2.5" strokeLinejoin="round" />
+    <path d="M54 46v20l-8-6l-6 6v-14" fill="none" stroke="#212529" strokeWidth="2.5" strokeLinejoin="round" />
+
+    {/* Scaled zig-zag badge background */}
+    <path d="M40 8 L44 13 L51 11 L54 17 L60 17 L61 24 L67 27 L64 34 L69 40 L64 46 L67 53 L61 56 L60 63 L54 63 L51 69 L44 67 L40 72 L36 67 L29 69 L26 63 L20 63 L19 56 L13 53 L16 46 L11 40 L16 34 L13 27 L19 24 L20 17 L26 17 L29 11 L36 13 Z" fill="white" stroke="#212529" strokeWidth="2.5" strokeLinejoin="round" />
+
+    {/* Inner dashed circle */}
+    <circle cx="40" cy="40" r="16" fill="white" stroke="#212529" strokeWidth="2" strokeDasharray="4 4" />
+    <circle cx="40" cy="40" r="12" fill="white" stroke="#212529" strokeWidth="1.5" />
+    <text x="40" y="45" textAnchor="middle" fontSize="14" fontWeight="bold" fill="#03A9F4" fontFamily="sans-serif">10</text>
+  </svg>
+);
+
+const EmiIcon = () => (
+  <svg width="68" height="68" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="22" y="14" width="36" height="50" rx="4" fill="white" stroke="#212529" strokeWidth="2.5" />
+    <rect x="28" y="22" width="24" height="12" rx="1" fill="none" stroke="#212529" strokeWidth="2.5" />
+    <rect x="28" y="40" width="4" height="4" rx="1" fill="#212529" />
+    <rect x="38" y="40" width="4" height="4" rx="1" fill="#212529" />
+    <rect x="48" y="40" width="4" height="4" rx="1" fill="#212529" />
+    <rect x="28" y="50" width="4" height="4" rx="1" fill="#212529" />
+    <rect x="38" y="50" width="4" height="4" rx="1" fill="#212529" />
+    <rect x="48" y="50" width="4" height="4" rx="1" fill="#212529" />
+
+    {/* Floating percentage badge */}
+    <circle cx="60" cy="56" r="14" fill="white" stroke="#e71c24" strokeWidth="2.5" />
+    <text x="60" y="62" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#e71c24" fontFamily="sans-serif">%</text>
+  </svg>
+);
+
+const DesignerIcon = () => (
+  <svg width="68" height="68" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Head */}
+    <circle cx="40" cy="24" r="12" fill="white" stroke="#212529" strokeWidth="2.5" />
+    {/* Body */}
+    <path d="M22 64C22 50 28 44 40 44C52 44 58 50 58 64" fill="#E6EDF5" stroke="#212529" strokeWidth="2.5" strokeLinecap="round" />
+
+    {/* Pencil positioned horizontally across body */}
+    <g transform="translate(10, 52)">
+      <rect x="0" y="0" width="50" height="10" fill="white" stroke="#212529" strokeWidth="2.5" />
+      {/* Pencil tip */}
+      <path d="M50 -1 L60 5 L50 11 Z" fill="white" stroke="#212529" strokeWidth="2.5" />
+      <path d="M56 3 L60 5 L56 7 Z" fill="#212529" />
+      {/* Red stripe on pencil */}
+      <line x1="0" y1="5" x2="50" y2="5" stroke="#e71c24" strokeWidth="2" />
+    </g>
+  </svg>
+);
+
+const HomesIcon = () => (
+  <svg width="68" height="68" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 36L40 14L68 36" stroke="#212529" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M20 30V64H60V30" fill="white" stroke="#212529" strokeWidth="2.5" strokeLinejoin="round" />
+    {/* Heart symbol centered */}
+    <path d="M40 52C40 52 28 42 28 34C28 30 32 26 36 26C38.2 26 40 28 40 28C40 28 41.8 26 44 26C48 26 52 30 52 34C52 42 40 52 40 52Z" fill="#e71c24" stroke="#e71c24" strokeWidth="1" strokeLinejoin="round" />
+  </svg>
+);
+
+const StudiosIcon = () => (
+  <svg width="68" height="68" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="16" y="24" width="48" height="40" fill="white" stroke="#212529" strokeWidth="2.5" />
+    <path d="M12 24L18 16H62L68 24H12Z" fill="#E6EDF5" stroke="#212529" strokeWidth="2.5" strokeLinejoin="round" />
+    {/* Blue stripes for the awning */}
+    <line x1="24" y1="17" x2="20" y2="23" stroke="#e71c24" strokeWidth="3" opacity="0.4" />
+    <line x1="36" y1="17" x2="32" y2="23" stroke="#e71c24" strokeWidth="3" opacity="0.4" />
+    <line x1="48" y1="17" x2="44" y2="23" stroke="#e71c24" strokeWidth="3" opacity="0.4" />
+    <line x1="60" y1="17" x2="56" y2="23" stroke="#e71c24" strokeWidth="3" opacity="0.4" />
+
+    <rect x="46" y="42" width="12" height="22" fill="#e71c24" stroke="#212529" strokeWidth="2.5" />
+    <rect x="22" y="32" width="18" height="14" fill="white" stroke="#212529" strokeWidth="2.5" />
+  </svg>
+);
+
+const CitiesIcon = () => (
+  <svg width="68" height="68" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Background building */}
+    <rect x="22" y="20" width="22" height="44" fill="#E6EDF5" stroke="#212529" strokeWidth="2.5" />
+    <rect x="28" y="28" width="2" height="2" fill="#212529" />
+    <rect x="36" y="28" width="2" height="2" fill="#212529" />
+    <rect x="28" y="36" width="2" height="2" fill="#212529" />
+    <rect x="36" y="36" width="2" height="2" fill="#212529" />
+
+    {/* Foreground building showing a bit of red */}
+    <rect x="38" y="40" width="24" height="24" fill="white" stroke="#212529" strokeWidth="2.5" />
+    <rect x="44" y="52" width="4" height="12" fill="#e71c24" stroke="#212529" strokeWidth="2" />
+    <rect x="54" y="46" width="4" height="4" fill="#212529" />
   </svg>
 );
 
 const items = [
-  { img: homesCompletedIcon,   label: '55000+\nHomes Delivered' },
-  { Icon: StudiosIcon,         label: '74 Studios' },
-  { Icon: CitiesIcon,          label: '42 Cities' },
-  { img: installationDaysIcon, label: 'Delivery in 45 days*' },
-  { Icon: NoCostIcon,          label: 'No Hidden Costs' },
-  { img: warrantyIcon,         label: 'Flat 10 Year Warranty' },
+  { Icon: NoCostIcon, label: 'No Hidden Costs' },
+  { Icon: WarrantyIcon, label: 'Flat 10 Year Warranty' },
+  { Icon: EmiIcon, label: 'Easy EMIs' },
+  { Icon: DesignerIcon, label: '600+\nIn-House Designers' },
+  { Icon: HomesIcon, label: '55000+\nHomes Delivered' },
+  { Icon: StudiosIcon, label: '74 Studios' },
+  { Icon: CitiesIcon, label: '42 Cities' },
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-white py-10 px-6" style={{ borderBottom: '1px solid #f0f0f0' }}>
-      <h2 className="text-[22px] font-bold text-center text-[#212529] mb-10">
+    <section className="bg-white py-12 px-6" style={{ borderBottom: '1px solid #f0f0f0' }}>
+      <h2 className="text-[26px] font-bold text-center text-[#212529] mb-12">
         Why Choose Us
       </h2>
 
-      <div className="max-w-[1100px] mx-auto flex flex-wrap items-start justify-center gap-8 md:gap-12 lg:gap-16">
+      <div className="max-w-[1240px] mx-auto flex flex-wrap items-start justify-center gap-6 md:gap-x-10 lg:gap-x-12">
         {items.map((item, i) => (
           <div
             key={i}
-            className="flex flex-col items-center gap-3 cursor-pointer group"
-            style={{ minWidth: 100, maxWidth: 120 }}
+            className="flex flex-col items-center gap-4 cursor-pointer group"
+            style={{ width: 125 }}
           >
             {/* icon */}
-            <div className="w-20 h-20 flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
-              {item.img ? (
-                <img
-                  src={item.img}
-                  alt={item.label.replace('\n', ' ')}
-                  className="w-[72px] h-[72px] object-contain"
-                />
-              ) : (
-                <item.Icon />
-              )}
+            <div className="w-[80px] h-[80px] flex items-center justify-center group-hover:-translate-y-1 transition-transform duration-300">
+              <item.Icon />
             </div>
-            {/* label — support multi-line via \n */}
-            <p className="text-[12px] font-semibold text-[#212529] text-center leading-snug">
+            {/* label */}
+            <p className="text-[14px] font-medium text-[#212529] text-center leading-snug">
               {item.label.split('\n').map((line, j) => (
                 <span key={j} className="block">{line}</span>
               ))}
