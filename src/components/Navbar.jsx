@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import hlLogo from "../assets/imgi_110_hllogosvg.svg";
+import { allCities } from "../data/cityData";
 
 const galleryItems = [
   {
@@ -234,7 +235,7 @@ const Navbar = () => {
                   <svg
                     viewBox="0 0 10 6"
                     className={`w-2.5 h-2.5 mt-0.5 fill-current transition-transform duration-300
-                      ${(link.name === "Design Gallery" || link.name === "Guides") ? "text-gray-400 group-hover:text-[#e71c24] group-hover:-rotate-180" : "text-gray-400 group-hover:text-[#e71c24]"}
+                      ${(link.name === "Design Gallery" || link.name === "Guides" || link.name === "Cities") ? "text-gray-400 group-hover:text-[#e71c24] group-hover:-rotate-180" : "text-gray-400 group-hover:text-[#e71c24]"}
                     `}
                   >
                     <path d="M0 0l5 6 5-6z" />
@@ -242,7 +243,7 @@ const Navbar = () => {
                 )}
 
                 {/* Active Red Bottom Border on hover */}
-                {(link.name === "Design Gallery" || link.name === "Guides") && (
+                {(link.name === "Design Gallery" || link.name === "Guides" || link.name === "Cities") && (
                   <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#e71c24] opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 )}
               </a>
@@ -290,6 +291,23 @@ const Navbar = () => {
                 </div>
               )}
 
+              {/* CITIES DROPDOWN */}
+              {link.name === "Cities" && (
+                <div className="absolute top-[70px] -left-32 bg-white shadow-[0_4px_16px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-[700px] p-8 border-t-[3px] border-[#e71c24] z-50 cursor-auto">
+                  <div className="grid grid-cols-4 gap-y-6 gap-x-4">
+                    {allCities.map((city) => (
+                      <Link
+                        key={city}
+                        to={`/cities/interior-designers-${city.toLowerCase()}`}
+                        className="text-[13px] text-[#4a4a4a] hover:text-[#e71c24] transition-colors truncate"
+                      >
+                        {city}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* MORE DROPDOWN */}
               {link.name === "More" && (
                 <div className="absolute top-[70px] left-0 bg-white shadow-[0_4px_16px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-[220px] p-5 border-t-[3px] border-[#e71c24] z-50 cursor-auto">
@@ -301,6 +319,18 @@ const Navbar = () => {
                     <Link to="/blogs" className="flex items-center gap-2 text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">
                       <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
                       Blogs
+                    </Link>
+                  </div>
+                </div>
+              )}
+
+              {/* OFFERINGS DROPDOWN */}
+              {link.name === "Offerings" && (
+                <div className="absolute top-[70px] left-0 bg-white shadow-[0_4px_16px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-[220px] p-5 border-t-[3px] border-[#e71c24] z-50 cursor-auto">
+                  <div className="flex flex-col gap-y-4">
+                    <Link to="/luxe" className="flex items-center gap-2 text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">
+                      <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                      HomeLane Luxe
                     </Link>
                   </div>
                 </div>
@@ -397,6 +427,24 @@ const Navbar = () => {
                   <Link to="/design-ideas/bathroom-design-ideas" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]" onClick={() => setMobileOpen(false)}>Bathroom Design Ideas</Link>
                 </div>
               )}
+              {/* CITIES Mobile Dropdown implementation */}
+              {link.name === "Cities" && (
+                <div className="bg-gray-50 px-6 py-4 border-b border-[#f8f8f8] grid grid-cols-2 gap-y-3">
+                  {allCities.slice(0, 10).map((city) => ( // Show top 10 for mobile for brevity
+                    <Link
+                      key={city}
+                      to={`/cities/interior-designers-${city.toLowerCase()}`}
+                      className="text-[13px] text-gray-600 hover:text-[#e71c24] truncate"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {city}
+                    </Link>
+                  ))}
+                  <Link to="/cities" className="col-span-2 text-center text-[#e71c24] font-semibold text-[13px] mt-2 underline" onClick={() => setMobileOpen(false)}>
+                    View All Cities
+                  </Link>
+                </div>
+              )}
               {/* MORE Mobile Dropdown implementation */}
               {link.name === "More" && (
                 <div className="bg-gray-50 px-6 py-2 border-b border-[#f8f8f8] flex flex-col">
@@ -407,6 +455,16 @@ const Navbar = () => {
                   <Link to="/blogs" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24] flex items-center gap-2" onClick={() => setMobileOpen(false)}>
                     <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
                     Blogs
+                  </Link>
+                </div>
+              )}
+
+              {/* OFFERINGS Mobile Dropdown implementation */}
+              {link.name === "Offerings" && (
+                <div className="bg-gray-50 px-6 py-2 border-b border-[#f8f8f8] flex flex-col">
+                  <Link to="/luxe" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24] flex items-center gap-2" onClick={() => setMobileOpen(false)}>
+                    <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                    HomeLane Luxe
                   </Link>
                 </div>
               )}

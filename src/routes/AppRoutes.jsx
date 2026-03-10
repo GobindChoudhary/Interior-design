@@ -6,6 +6,8 @@ import DesignIdea from "../pages/DesignIdea";
 import BlogPost from "../pages/BlogPost";
 import Blogs from "../pages/Blogs";
 import CustomerStories from "../pages/CustomerStories";
+import Luxe from "../pages/Luxe";
+import CityPage from "../pages/CityPage";
 
 const AppRoutes = () => {
     return (
@@ -27,6 +29,13 @@ const AppRoutes = () => {
 
             {/* Customer Stories page */}
             <Route path="/customer-stories" element={<CustomerStories />} />
+
+            {/* Luxe page */}
+            <Route path="/luxe" element={<Luxe />} />
+
+            {/* Dynamic City Page */}
+            <Route path="/cities/interior-designers-:cityName" element={<CityPage />} />
+            <Route path="/cities/*" element={<CityPage />} /> {/* Fallback for debugging */}
         </Routes>
     );
 };

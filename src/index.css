@@ -1,18 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: 'Lato', sans-serif;
-  --color-hl-red:       #e71c24;
-  --color-hl-red-dark:  #c41920;
-  --color-hl-bg:        #f8f8f8;
-  --color-hl-border:    #f0f0f0;
-  --color-hl-text:      #212529;
-  --color-hl-muted:     #7b7b7b;
+  --font-serif: 'Playfair Display', serif;
+  --font-script: 'Great Vibes', cursive;
+  --color-hl-red: #e71c24;
+  --color-hl-red-dark: #c41920;
+  --color-hl-bg: #f8f8f8;
+  --color-hl-border: #f0f0f0;
+  --color-hl-text: #212529;
+  --color-hl-muted: #7b7b7b;
 }
 
-*, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: 'Lato', sans-serif;
@@ -22,6 +32,16 @@ body {
 }
 
 /* Thin red scrollbar */
-::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: #f8f8f8; }
-::-webkit-scrollbar-thumb { background: #e71c24; border-radius: 4px; }
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8f8f8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e71c24;
+  border-radius: 4px;
+}

@@ -46,16 +46,17 @@ const DesignerCard = ({ designer }) => {
     );
 };
 
-const ExpertDesigners = () => {
+const ExpertDesigners = ({ title = "Meet Our Expert Designers:", subtitle = "The Minds Behind the Magic" }) => {
     return (
         <section className="py-16 px-4 bg-white">
             <div className="max-w-[1400px] mx-auto flex flex-col items-center">
 
                 <div className="text-center mb-12">
-                    <h2 className="text-[32px] md:text-[38px] font-normal text-[#212529] leading-tight">
-                        Meet Our Expert Designers:
-                        <br />
-                        <span className="text-[#555] font-light">The Minds Behind the Magic</span>
+                    <h2 className="text-[32px] md:text-[38px] font-normal text-[#212529] leading-tight text-center flex flex-col items-center">
+                        {title}
+                        {subtitle && (
+                            <span className="text-[#555] font-light mt-1 text-[28px] md:text-[32px]">{subtitle}</span>
+                        )}
                     </h2>
                 </div>
 

@@ -2,13 +2,17 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AppRoutes from "./routes/AppRoutes";
+import { useLocation } from "react-router-dom";
 
 function App() {
+  const location = useLocation();
+  const isLuxePage = location.pathname === '/luxe';
+
   return (
     <>
-      <Navbar />
+      {!isLuxePage && <Navbar />}
 
-      <main className="min-h-screen pt-[70px]">
+      <main className={`min-h-screen ${!isLuxePage ? 'pt-[70px]' : ''}`}>
         <AppRoutes />
       </main>
 
