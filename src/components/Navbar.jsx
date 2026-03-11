@@ -3,198 +3,7 @@ import { Link } from "react-router-dom";
 import hlLogo from "../assets/imgi_110_hllogosvg.svg";
 import { allCities } from "../data/cityData";
 
-const galleryItems = [
-  {
-    name: "Home Interiors",
-    icon: (
-      <svg
-        width="28"
-        height="28"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      >
-        <path
-          d="M3 9.5L12 3l9 6.5"
-          stroke="#103a68"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M5 9.5V20a1 1 0 001 1h12a1 1 0 001-1V9.5"
-          stroke="#103a68"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M9 21V12h6v9"
-          stroke="#e71c24"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
-  },
-  {
-    name: "Modular Kitchen",
-    icon: (
-      <svg
-        width="28"
-        height="28"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      >
-        <rect x="3" y="15" width="18" height="6" rx="0.5" stroke="#103a68" />
-        <path d="M3 15h18" stroke="#103a68" />
-        <rect x="4" y="5" width="7" height="6" rx="0.5" stroke="#e71c24" />
-        <rect x="13" y="5" width="7" height="6" rx="0.5" stroke="#e71c24" />
-      </svg>
-    ),
-  },
-  {
-    name: "Living Room",
-    icon: (
-      <svg
-        width="28"
-        height="28"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      >
-        <path d="M3 13v4a1 1 0 001 1h16a1 1 0 001-1v-4" stroke="#103a68" />
-        <path d="M3 13V9a1 1 0 011-1h16a1 1 0 011 1v4" stroke="#103a68" />
-        <path d="M6 18v2m12-2v2" stroke="#103a68" strokeLinecap="round" />
-        <rect x="6" y="10" width="4" height="3" rx="0.5" stroke="#e71c24" />
-        <rect x="14" y="10" width="4" height="3" rx="0.5" stroke="#e71c24" />
-      </svg>
-    ),
-  },
-  {
-    name: "Bedroom",
-    icon: (
-      <svg
-        width="28"
-        height="28"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      >
-        <rect x="2" y="14" width="20" height="4" rx="0.5" stroke="#103a68" />
-        <path d="M4 14V8a1 1 0 011-1h14a1 1 0 011 1v6" stroke="#103a68" />
-        <path d="M4 18v2m16-2v2" stroke="#103a68" strokeLinecap="round" />
-        <rect x="7" y="10" width="4" height="3" rx="0.5" stroke="#e71c24" />
-        <rect x="13" y="10" width="4" height="3" rx="0.5" stroke="#e71c24" />
-      </svg>
-    ),
-  },
-  {
-    name: "Wardrobe",
-    icon: (
-      <svg
-        width="28"
-        height="28"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      >
-        <rect x="5" y="3" width="14" height="18" rx="0.5" stroke="#103a68" />
-        <line x1="12" y1="3" x2="12" y2="21" stroke="#103a68" />
-        <line
-          x1="10"
-          y1="11"
-          x2="10"
-          y2="14"
-          stroke="#e71c24"
-          strokeLinecap="round"
-        />
-        <line
-          x1="14"
-          y1="11"
-          x2="14"
-          y2="14"
-          stroke="#e71c24"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
-  },
-  {
-    name: "Space Saving Furniture",
-    icon: (
-      <svg
-        width="28"
-        height="28"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      >
-        <rect x="2" y="11" width="20" height="3" rx="0.5" stroke="#103a68" />
-        <path d="M5 14v6m14-6v6" stroke="#103a68" strokeLinecap="round" />
-        <path
-          d="M9 7L5 11m10-4l4 4H9"
-          stroke="#e71c24"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
-  },
-  {
-    name: "Home Office",
-    icon: (
-      <svg
-        width="28"
-        height="28"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      >
-        <rect x="2" y="14" width="20" height="2" stroke="#103a68" />
-        <path d="M4 16v6m16-6v6" stroke="#103a68" strokeLinecap="round" />
-        <rect x="6" y="4" width="12" height="7" rx="0.5" stroke="#e71c24" />
-        <path d="M10 11v3h4v-3" stroke="#e71c24" />
-      </svg>
-    ),
-  },
-  {
-    name: "Bathroom",
-    icon: (
-      <svg
-        width="28"
-        height="28"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      >
-        <path d="M3 13h18v3a4 4 0 01-4 4H7a4 4 0 01-4-4v-3z" stroke="#103a68" />
-        <path d="M5 20l-1 2m15-2l1 2" stroke="#103a68" strokeLinecap="round" />
-        <path
-          d="M7 13V5a1 1 0 011-1h2"
-          stroke="#e71c24"
-          strokeLinecap="round"
-        />
-        <circle cx="12" cy="4" r="1.5" fill="#e71c24" />
-      </svg>
-    ),
-  },
-];
-
-const navLinks = [
-  { name: "Design Gallery", hasDropdown: true },
-  { name: "Guides", hasDropdown: true },
-  { name: "Cities", hasDropdown: true },
-  { name: "Offerings", hasDropdown: true },
-  { name: "Price Calculators", hasDropdown: true },
-  { name: "More", hasDropdown: true },
-];
+import { galleryItems, navLinks } from "../data/navbarData";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -225,7 +34,7 @@ const Navbar = () => {
               className="group h-full flex items-center relative"
             >
               <a
-                href="#"
+                href={link.name === "Price Calculators" ? "#" : "#"}
                 className={`flex items-center gap-1 px-4 h-full text-[14px] font-medium transition-colors whitespace-nowrap 
                   ${(link.name === "Design Gallery" || link.name === "Guides") ? "text-[#212529] group-hover:text-[#e71c24]" : "text-[#212529] hover:text-[#e71c24]"}
                 `}
@@ -235,7 +44,7 @@ const Navbar = () => {
                   <svg
                     viewBox="0 0 10 6"
                     className={`w-2.5 h-2.5 mt-0.5 fill-current transition-transform duration-300
-                      ${(link.name === "Design Gallery" || link.name === "Guides" || link.name === "Cities") ? "text-gray-400 group-hover:text-[#e71c24] group-hover:-rotate-180" : "text-gray-400 group-hover:text-[#e71c24]"}
+                      ${(link.name === "Design Gallery" || link.name === "Guides" || link.name === "Cities" || link.name === "Price Calculators") ? "text-gray-400 group-hover:text-[#e71c24] group-hover:-rotate-180" : "text-gray-400 group-hover:text-[#e71c24]"}
                     `}
                   >
                     <path d="M0 0l5 6 5-6z" />
@@ -243,7 +52,7 @@ const Navbar = () => {
                 )}
 
                 {/* Active Red Bottom Border on hover */}
-                {(link.name === "Design Gallery" || link.name === "Guides" || link.name === "Cities") && (
+                {(link.name === "Design Gallery" || link.name === "Guides" || link.name === "Cities" || link.name === "Price Calculators") && (
                   <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#e71c24] opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 )}
               </a>
@@ -335,7 +144,24 @@ const Navbar = () => {
                   </div>
                 </div>
               )}
+
+              {/* PRICE CALCULATORS DROPDOWN */}
+              {link.name === "Price Calculators" && (
+                <div className="absolute top-[70px] left-0 bg-white shadow-[0_4px_16px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-[260px] p-5 border-t-[3px] border-[#e71c24] z-50 cursor-auto">
+                  <div className="flex flex-col gap-y-4">
+                    <Link to="/price-calculator/kitchen" className="flex items-center gap-2 text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">
+                      <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 15h18" /><rect x="3" y="15" width="18" height="6" rx="0.5" /><rect x="4" y="5" width="7" height="6" rx="0.5" /><rect x="13" y="5" width="7" height="6" rx="0.5" /></svg>
+                      Kitchen Price Calculator
+                    </Link>
+                    <Link to="/price-calculator/home-interior" className="flex items-center gap-2 text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">
+                      <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9.5L12 3l9 6.5" /><path d="M5 9.5V20a1 1 0 001 1h12a1 1 0 001-1V9.5" /></svg>
+                      Home Interior Price Calculator
+                    </Link>
+                  </div>
+                </div>
+              )}
             </div>
+
           ))}
         </div>
 
@@ -465,6 +291,20 @@ const Navbar = () => {
                   <Link to="/luxe" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24] flex items-center gap-2" onClick={() => setMobileOpen(false)}>
                     <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                     HomeLane Luxe
+                  </Link>
+                </div>
+              )}
+
+              {/* PRICE CALCULATORS Mobile Dropdown implementation */}
+              {link.name === "Price Calculators" && (
+                <div className="bg-gray-50 px-6 py-2 border-b border-[#f8f8f8] flex flex-col">
+                  <Link to="/price-calculator/kitchen" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24] flex items-center gap-2" onClick={() => setMobileOpen(false)}>
+                    <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 15h18" /><rect x="3" y="15" width="18" height="6" rx="0.5" /><rect x="4" y="5" width="7" height="6" rx="0.5" /><rect x="13" y="5" width="7" height="6" rx="0.5" /></svg>
+                    Kitchen Price Calculator
+                  </Link>
+                  <Link to="/price-calculator/home-interior" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24] flex items-center gap-2" onClick={() => setMobileOpen(false)}>
+                    <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9.5L12 3l9 6.5" /><path d="M5 9.5V20a1 1 0 001 1h12a1 1 0 001-1V9.5" /></svg>
+                    Home Interior Price Calculator
                   </Link>
                 </div>
               )}

@@ -8,6 +8,7 @@ import Blogs from "../pages/Blogs";
 import CustomerStories from "../pages/CustomerStories";
 import Luxe from "../pages/Luxe";
 import CityPage from "../pages/CityPage";
+import PriceCalculator from "../pages/PriceCalculator";
 
 const AppRoutes = () => {
     return (
@@ -32,6 +33,9 @@ const AppRoutes = () => {
 
             {/* Luxe page */}
             <Route path="/luxe" element={<Luxe />} />
+
+            {/* Price Calculator Page */}
+            <Route path="/price-calculator/:type" element={<PriceCalculator />} />
 
             {/* Dynamic City Page */}
             <Route path="/cities/interior-designers-:cityName" element={<CityPage />} />
