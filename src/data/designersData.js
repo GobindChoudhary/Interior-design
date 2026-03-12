@@ -1,7 +1,7 @@
-import manushaImg from '../assets/imgi_49_testimonials_1-1715946941212ade2ed76ab2f.jpg';
-import lohithImg from '../assets/imgi_50_testimonials_2-17159469099499f6ead828763.jpg';
-import shikhaImg from '../assets/imgi_51_testimonials_3-171594687124533c0cecd6b5e.jpg';
-import prithaImg from '../assets/imgi_52_testimonials_4-1715946821111c85f1e6a8321.jpg';
+import manushaImg from '../assets/manusha.webp';
+import lohithImg from '../assets/lohit.webp';
+import shikhaImg from '../assets/shikha.webp';
+import prithaImg from '../assets/pritha.webp';
 
 export const expertDesigners = [
   {

@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import hlLogo from "../assets/imgi_110_hllogosvg.svg";
+import { scrollToForm } from "../utils/scrollToForm";
 
 const footerCols = [
   {
@@ -7,8 +8,8 @@ const footerCols = [
     links: [
       { label: "About Us", to: null },
       { label: "Team", to: null },
-      { label: "Careers", to: null },
-      { label: "Press", to: null },
+      // { label: "Careers", to: null },
+      // { label: "Press", to: null },
       { label: "Blog", to: "/blogs" },
       { label: "Partners", to: null },
     ],
@@ -16,8 +17,8 @@ const footerCols = [
   {
     title: "Services",
     links: [
-      { label: "Modular Kitchens", to: "/home-interiors/modular-kitchens" },
-      { label: "Wardrobes", to: "/home-interiors/wardrobes" },
+      { label: "Modular Kitchens", to: "/home-interiors/modular-kitchen" },
+      { label: "Wardrobes", to: "/home-interiors/wardrobe" },
       { label: "Living Room", to: "/home-interiors/living-room" },
       { label: "Bedroom", to: "/home-interiors/bedroom" },
       { label: "Bathroom", to: "/home-interiors/bathroom" },
@@ -27,12 +28,12 @@ const footerCols = [
   {
     title: "Support",
     links: [
-      { label: "Customer Support", to: null },
-      { label: "Contact Us", to: null },
+      { label: "Customer Support", href: "https://wa.me/919019166600" },
+      { label: "Contact Us", action: "scrollToForm" },
       { label: "Privacy Policy", to: "/privacy-policy" },
       { label: "Terms of Use", to: "/privacy-policy" },
       { label: "Store Locator", to: "/cities" },
-      { label: "Site Map", to: null },
+      // { label: "Site Map", to: null },
     ],
   },
 ];
@@ -64,100 +65,140 @@ const socials = [
   },
 ];
 
-const Footer = () => (
-  <footer className="bg-[#f8f8f8]" style={{ borderTop: "1px solid #e8e8e8" }}>
-    <div className="max-w-[1400px] mx-auto px-8 py-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
-      {/* Brand col */}
-      <div className="col-span-2 md:col-span-3 lg:col-span-2">
-        <img src={hlLogo} alt="HomeLane" className="h-8 mb-4" />
-        <p className="text-[13px] text-[#7b7b7b] leading-relaxed mb-5 max-w-xs">
-          Interiors you'll love. Without the stress!
-          <br />
-          Expert home interior design across 42 cities in India.
-        </p>
-        {/* Social icons */}
-        <div className="flex items-center gap-3">
-          {socials.map((s) => (
-            <a
-              key={s.name}
-              href={s.href}
-              title={s.name}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:shadow-md transition-shadow"
-              style={{ border: "1px solid #e0e0e0" }}
-            >
-              <svg
-                className="w-[14px] h-[14px]"
-                fill={s.color}
-                viewBox="0 0 24 24"
+const Footer = () => {
+  const navigate = useNavigate();
+
+  return (
+    <footer className="bg-white" style={{ borderTop: "1px solid #e8e8e8" }}>
+      {/* Top CTA Section */}
+      <div className="border-b border-gray-100">
+        <div className="max-w-[1400px] mx-auto px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="text-center md:text-left">
+            <h2 className="text-[24px] md:text-[28px] font-bold text-[#212529] mb-2">
+              Ready to design your dream home?
+            </h2>
+            <p className="text-[14px] text-[#7b7b7b]">
+              Get started with a free consultation today!
+            </p>
+          </div>
+          <button
+            onClick={() => scrollToForm(navigate)}
+            className="bg-[#e71c24] hover:bg-[#c41920] text-white text-[15px] font-bold px-10 py-3.5 rounded-[4px] transition-all shadow-md hover:shadow-lg"
+          >
+            Get Free Estimate
+          </button>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-8 py-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
+        {/* Brand col */}
+        <div className="col-span-2 md:col-span-3 lg:col-span-2">
+          <img src={hlLogo} alt="HomeLane" className="h-8 mb-4" />
+          <p className="text-[13px] text-[#7b7b7b] leading-relaxed mb-5 max-w-xs">
+            Interiors you'll love. Without the stress!
+            <br />
+            Expert home interior design across 42 cities in India.
+          </p>
+          {/* Social icons */}
+          <div className="flex items-center gap-4">
+            {socials.map((s) => (
+              <a
+                key={s.name}
+                href={s.href}
+                title={s.name}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center hover:bg-white hover:shadow-md transition-all duration-300"
               >
-                <path d={s.path} />
-              </svg>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      {/* Link columns */}
-      {footerCols.map((col) => (
-        <div key={col.title}>
-          <h4
-            className="text-[13px] font-bold mb-4 uppercase tracking-wide"
-            style={{ color: "rgba(0,0,0,0.8)" }}
-          >
-            {col.title}
-          </h4>
-          <ul className="flex flex-col gap-2.5">
-            {col.links.map((item) => (
-              <li key={item.label}>
-                {item.to ? (
-                  <Link
-                    to={item.to}
-                    className="text-[13px] transition-colors hover:text-[#e71c24]"
-                    style={{ color: "#7b7b7b" }}
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
-                  <span
-                    className="text-[13px] transition-colors hover:text-[#e71c24] cursor-default"
-                    style={{ color: "#7b7b7b" }}
-                  >
-                    {item.label}
-                  </span>
-                )}
-              </li>
+                <svg
+                  className="w-[16px] h-[16px]"
+                  fill={s.color}
+                  viewBox="0 0 24 24"
+                >
+                  <path d={s.path} />
+                </svg>
+              </a>
             ))}
-          </ul>
+          </div>
         </div>
-      ))}
-    </div>
 
-    {/* Bottom bar */}
-    <div style={{ borderTop: "1px solid #e0e0e0" }} className="px-8 py-4">
-      <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-        <span className="text-[12px] text-[#7b7b7b]">
-          © {new Date().getFullYear()} HomeLane.com. All rights reserved.
-        </span>
-        <div className="flex gap-6">
-          <Link
-            to="/privacy-policy"
-            className="text-[12px] text-[#7b7b7b] hover:text-[#e71c24] transition-colors"
-          >
-            Privacy Policy
-          </Link>
-          <Link
-            to="/privacy-policy"
-            className="text-[12px] text-[#7b7b7b] hover:text-[#e71c24] transition-colors"
-          >
-            Terms of Use
-          </Link>
-          <span className="text-[12px] text-[#7b7b7b]">Cookie Policy</span>
+        {/* Link columns */}
+        {footerCols.map((col) => (
+          <div key={col.title}>
+            <h4 className="text-[14px] font-bold mb-6 text-[#212529] uppercase tracking-wider">
+              {col.title}
+            </h4>
+            <ul className="flex flex-col gap-3.5">
+              {col.links.map((item) => (
+                <li key={item.label}>
+                  {item.to ? (
+                    <Link
+                      to={item.to}
+                      className="text-[14px] text-[#7b7b7b] transition-colors hover:text-[#e71c24]"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : item.href ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[14px] text-[#7b7b7b] transition-colors hover:text-[#e71c24] cursor-pointer"
+                    >
+                      {item.label}
+                    </a>
+                  ) : item.action === "scrollToForm" ? (
+                    <button
+                      onClick={() => scrollToForm(navigate)}
+                      className="text-[14px] text-[#7b7b7b] transition-colors hover:text-[#e71c24] cursor-pointer"
+                    >
+                      {item.label}
+                    </button>
+                  ) : (
+                    <span className="text-[14px] text-[#7b7b7b] transition-colors hover:text-[#e71c24] cursor-default">
+                      {item.label}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      {/* Bottom bar */}
+      <div style={{ borderTop: "1px solid #f0f0f0" }} className="px-8 py-8">
+        <div className="max-w-[1400px] mx-auto flex flex-col items-center gap-6">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
+            <Link
+              to="/privacy-policy"
+              className="text-[13px] text-[#7b7b7b] hover:text-[#e71c24] transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              to="/privacy-policy"
+              className="text-[13px] text-[#7b7b7b] hover:text-[#e71c24] transition-colors"
+            >
+              Terms of Use
+            </Link>
+            <span className="text-[13px] text-[#7b7b7b] cursor-default">
+              Cookie Policy
+            </span>
+            <Link
+              to="/blogs"
+              className="text-[13px] text-[#7b7b7b] hover:text-[#e71c24] transition-colors"
+            >
+              The Design Journal
+            </Link>
+          </div>
+          <span className="text-[13px] text-[#999] text-center">
+            © {new Date().getFullYear()} HomeLane.com. All rights reserved.
+          </span>
         </div>
       </div>
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};
 
 export default Footer;

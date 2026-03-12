@@ -211,7 +211,10 @@ export default function PromoBanner() {
             <p className="text-xl md:text-[22px] text-gray-600 font-light mb-10">
               Meet a designer who'll bring it all together—free.
             </p>
-            <button onClick={() => scrollToForm(navigate)} className="bg-[#e71c24] text-white px-8 py-3.5 rounded-[4px] text-lg font-medium hover:bg-[#c41920] transition-colors shadow-lg shadow-red-500/30">
+            <button
+              onClick={() => scrollToForm(navigate)}
+              className="bg-[#e71c24] text-white px-8 py-3.5 rounded-[4px] text-lg font-medium hover:bg-[#c41920] transition-colors shadow-lg shadow-red-500/30"
+            >
               Meet a Designer
             </button>
           </div>

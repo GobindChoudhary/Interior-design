@@ -65,15 +65,25 @@ const Partners = () => (
         className="w-full overflow-x-auto mb-10 pb-4"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
-        <div className="flex flex-row justify-between items-center gap-12 md:gap-16 min-w-max mx-auto px-4" style={{ maxWidth: 1200 }}>
+        <div
+          className="flex flex-row justify-between items-center gap-12 md:gap-16 min-w-max mx-auto px-4"
+          style={{ maxWidth: 1200 }}
+        >
           {partnerLogos.map((p, i) => (
-            <div key={i} className="flex items-center justify-center flex-shrink-0" style={{ width: 150, height: 80 }}>
+            <div
+              key={i}
+              className="flex items-center justify-center flex-shrink-0"
+              style={{ width: 150, height: 80 }}
+            >
               <img
                 src={p.img}
                 alt={p.name}
                 title={p.name}
                 className="object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-                style={{ maxHeight: i === 5 ? "80px" : "60px", maxWidth: "100%" }} // Make Stylam larger
+                style={{
+                  maxHeight: i === 5 ? "80px" : "60px",
+                  maxWidth: "100%",
+                }} // Make Stylam larger
               />
             </div>
           ))}

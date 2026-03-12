@@ -40,7 +40,7 @@ const Navbar = () => {
               <a
                 href={link.name === "Price Calculators" ? "#" : "#"}
                 className={`flex items-center gap-1 px-4 h-full text-[14px] font-medium transition-colors whitespace-nowrap 
-                  ${(link.name === "Design Gallery" || link.name === "Guides") ? "text-[#212529] group-hover:text-[#e71c24]" : "text-[#212529] hover:text-[#e71c24]"}
+                  ${link.name === "Design Gallery" || link.name === "Guides" ? "text-[#212529] group-hover:text-[#e71c24]" : "text-[#212529] hover:text-[#e71c24]"}
                 `}
               >
                 {link.name}
@@ -48,7 +48,7 @@ const Navbar = () => {
                   <svg
                     viewBox="0 0 10 6"
                     className={`w-2.5 h-2.5 mt-0.5 fill-current transition-transform duration-300
-                      ${(link.name === "Design Gallery" || link.name === "Guides" || link.name === "Cities" || link.name === "Price Calculators") ? "text-gray-400 group-hover:text-[#e71c24] group-hover:-rotate-180" : "text-gray-400 group-hover:text-[#e71c24]"}
+                      ${link.name === "Design Gallery" || link.name === "Guides" || link.name === "Cities" || link.name === "Price Calculators" ? "text-gray-400 group-hover:text-[#e71c24] group-hover:-rotate-180" : "text-gray-400 group-hover:text-[#e71c24]"}
                     `}
                   >
                     <path d="M0 0l5 6 5-6z" />
@@ -56,7 +56,10 @@ const Navbar = () => {
                 )}
 
                 {/* Active Red Bottom Border on hover */}
-                {(link.name === "Design Gallery" || link.name === "Guides" || link.name === "Cities" || link.name === "Price Calculators") && (
+                {(link.name === "Design Gallery" ||
+                  link.name === "Guides" ||
+                  link.name === "Cities" ||
+                  link.name === "Price Calculators") && (
                   <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#e71c24] opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 )}
               </a>
@@ -70,7 +73,7 @@ const Navbar = () => {
                         to={
                           item.name === "Home Interiors"
                             ? "/home-interiors"
-                            : `/home-interiors/${item.name.toLowerCase().replace(/\s+/g, '-')}`
+                            : `/home-interiors/${item.name.toLowerCase().replace(/\s+/g, "-")}`
                         }
                         key={item.name}
                         className={`flex items-center gap-4 py-4 group/item
@@ -93,13 +96,48 @@ const Navbar = () => {
               {link.name === "Guides" && (
                 <div className="absolute top-[70px] left-0 bg-white shadow-[0_4px_16px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-[500px] p-8 border-t-[3px] border-[#e71c24] z-50 cursor-auto">
                   <div className="grid grid-cols-2 gap-x-6 gap-y-5">
-                    <Link to="/design-ideas/modular-kitchen-design-ideas" className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">Modular Kitchen Design Ideas</Link>
-                    <Link to="/design-ideas/wardrobe-design-ideas" className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">Wardrobe Design Ideas</Link>
-                    <Link to="/design-ideas/bedroom-design-ideas" className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">Bedroom Design Ideas</Link>
-                    <Link to="/design-ideas/living-room-interior-design-ideas" className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">Living Room Interior Design Ideas</Link>
-                    <Link to="/design-ideas/home-interior-design-ideas" className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">Home Interior Design Ideas</Link>
-                    <Link to="/design-ideas/home-decor-trends" className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">Home Decor Trends</Link>
-                    <Link to="/design-ideas/bathroom-design-ideas" className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">Bathroom Design Ideas</Link>
+                    <Link
+                      to="/design-ideas/modular-kitchen-design-ideas"
+                      className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors"
+                    >
+                      Modular Kitchen Design Ideas
+                    </Link>
+                    <Link
+                      to="/design-ideas/wardrobe-design-ideas"
+                      className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors"
+                    >
+                      Wardrobe Design Ideas
+                    </Link>
+                    <Link
+                      to="/design-ideas/bedroom-design-ideas"
+                      className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors"
+                    >
+                      Bedroom Design Ideas
+                    </Link>
+                    <Link
+                      to="/design-ideas/living-room-interior-design-ideas"
+                      className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors"
+                    >
+                      Living Room Interior Design Ideas
+                    </Link>
+                    <Link
+                      to="/design-ideas/home-interior-design-ideas"
+                      className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors"
+                    >
+                      Home Interior Design Ideas
+                    </Link>
+                    <Link
+                      to="/design-ideas/home-decor-trends"
+                      className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors"
+                    >
+                      Home Decor Trends
+                    </Link>
+                    <Link
+                      to="/design-ideas/bathroom-design-ideas"
+                      className="text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors"
+                    >
+                      Bathroom Design Ideas
+                    </Link>
                   </div>
                 </div>
               )}
@@ -125,12 +163,38 @@ const Navbar = () => {
               {link.name === "More" && (
                 <div className="absolute top-[70px] left-0 bg-white shadow-[0_4px_16px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-[220px] p-5 border-t-[3px] border-[#e71c24] z-50 cursor-auto">
                   <div className="flex flex-col gap-y-4">
-                    <Link to="/customer-stories" className="flex items-center gap-2 text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">
-                      <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+                    <Link
+                      to="/customer-stories"
+                      className="flex items-center gap-2 text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        className="w-3 h-3 text-[#e71c24] shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M9 18l6-6-6-6" />
+                      </svg>
                       Customer Stories
                     </Link>
-                    <Link to="/blogs" className="flex items-center gap-2 text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">
-                      <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+                    <Link
+                      to="/blogs"
+                      className="flex items-center gap-2 text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        className="w-3 h-3 text-[#e71c24] shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M9 18l6-6-6-6" />
+                      </svg>
                       Blogs
                     </Link>
                   </div>
@@ -141,8 +205,21 @@ const Navbar = () => {
               {link.name === "Offerings" && (
                 <div className="absolute top-[70px] left-0 bg-white shadow-[0_4px_16px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-[220px] p-5 border-t-[3px] border-[#e71c24] z-50 cursor-auto">
                   <div className="flex flex-col gap-y-4">
-                    <Link to="/luxe" className="flex items-center gap-2 text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">
-                      <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                    <Link
+                      to="/luxe"
+                      className="flex items-center gap-2 text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        className="w-3 h-3 text-[#e71c24] shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
                       HomeLane Luxe
                     </Link>
                   </div>
@@ -153,25 +230,54 @@ const Navbar = () => {
               {link.name === "Price Calculators" && (
                 <div className="absolute top-[70px] left-0 bg-white shadow-[0_4px_16px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-[260px] p-5 border-t-[3px] border-[#e71c24] z-50 cursor-auto">
                   <div className="flex flex-col gap-y-4">
-                    <Link to="/price-calculator/kitchen" className="flex items-center gap-2 text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">
-                      <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 15h18" /><rect x="3" y="15" width="18" height="6" rx="0.5" /><rect x="4" y="5" width="7" height="6" rx="0.5" /><rect x="13" y="5" width="7" height="6" rx="0.5" /></svg>
+                    <Link
+                      to="/price-calculator/kitchen"
+                      className="flex items-center gap-2 text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        className="w-4 h-4 text-[#e71c24] shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M3 15h18" />
+                        <rect x="3" y="15" width="18" height="6" rx="0.5" />
+                        <rect x="4" y="5" width="7" height="6" rx="0.5" />
+                        <rect x="13" y="5" width="7" height="6" rx="0.5" />
+                      </svg>
                       Kitchen Price Calculator
                     </Link>
-                    <Link to="/price-calculator/home-interior" className="flex items-center gap-2 text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors">
-                      <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9.5L12 3l9 6.5" /><path d="M5 9.5V20a1 1 0 001 1h12a1 1 0 001-1V9.5" /></svg>
+                    <Link
+                      to="/price-calculator/home-interior"
+                      className="flex items-center gap-2 text-[13px] text-gray-700 hover:text-[#e71c24] transition-colors"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        className="w-4 h-4 text-[#e71c24] shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M3 9.5L12 3l9 6.5" />
+                        <path d="M5 9.5V20a1 1 0 001 1h12a1 1 0 001-1V9.5" />
+                      </svg>
                       Home Interior Price Calculator
                     </Link>
                   </div>
                 </div>
               )}
             </div>
-
           ))}
         </div>
 
         {/* Right CTA */}
         <div className="ml-auto flex items-center gap-4 flex-shrink-0">
-          <button 
+          <button
             onClick={scrollToPrice}
             className="bg-[#e71c24] hover:bg-[#c41920] text-white text-[14px] font-bold px-6 py-2.5 rounded-[4px] transition-colors whitespace-nowrap"
           >
@@ -182,32 +288,39 @@ const Navbar = () => {
           <div className="hidden lg:block">
             {user ? (
               <div className="relative">
-                <button 
+                <button
                   onMouseEnter={() => setUserDropdownOpen(true)}
                   className="flex items-center gap-2 group cursor-pointer"
                 >
                   <div className="w-9 h-9 rounded-full bg-red-50 text-[#e71c24] flex items-center justify-center font-bold border border-red-100 uppercase transition-all group-hover:bg-[#e71c24] group-hover:text-white">
                     {user.name.charAt(0)}
                   </div>
-                  <svg viewBox="0 0 10 6" className={`w-2.5 h-2.5 text-gray-400 transition-transform duration-300 ${userDropdownOpen ? 'rotate-180' : ''}`}>
+                  <svg
+                    viewBox="0 0 10 6"
+                    className={`w-2.5 h-2.5 text-gray-400 transition-transform duration-300 ${userDropdownOpen ? "rotate-180" : ""}`}
+                  >
                     <path d="M0 0l5 6 5-6z" fill="currentColor" />
                   </svg>
                 </button>
 
                 {/* User Dropdown */}
                 {userDropdownOpen && (
-                  <div 
+                  <div
                     className="absolute top-full right-0 mt-2 w-48 bg-white rounded-lg shadow-[0_10px_40px_rgba(0,0,0,0.1)] border border-gray-100 py-2 z-[60] animate-in fade-in slide-in-from-top-2 duration-200"
                     onMouseLeave={() => setUserDropdownOpen(false)}
                   >
                     <div className="px-4 py-2 border-b border-gray-50">
-                      <p className="text-[12px] font-bold text-gray-400 uppercase tracking-wider">Account</p>
-                      <p className="text-[14px] font-medium text-[#212529] truncate">{user.email}</p>
+                      <p className="text-[12px] font-bold text-gray-400 uppercase tracking-wider">
+                        Account
+                      </p>
+                      <p className="text-[14px] font-medium text-[#212529] truncate">
+                        {user.email}
+                      </p>
                     </div>
-                    <Link to="/profile" className="block px-4 py-2 text-[14px] text-gray-700 hover:bg-gray-50 hover:text-[#e71c24] transition-colors">
+                    {/* <Link to="/profile" className="block px-4 py-2 text-[14px] text-gray-700 hover:bg-gray-50 hover:text-[#e71c24] transition-colors">
                       My Profile
-                    </Link>
-                    <button 
+                    </Link> */}
+                    <button
                       onClick={() => {
                         logout();
                         setUserDropdownOpen(false);
@@ -220,11 +333,11 @@ const Navbar = () => {
                 )}
               </div>
             ) : (
-              <button 
+              <button
                 onClick={openAuthModal}
-                className="text-[14px] font-bold text-[#212529] hover:text-[#e71c24] transition-colors uppercase tracking-tight"
+                className="text-[14px] font-bold text-[#212529] hover:text-[#e71c24] transition-colors  tracking-tight"
               >
-                LOGIN / SIGN UP
+                Login
               </button>
             )}
           </div>
@@ -272,11 +385,15 @@ const Navbar = () => {
                     {user.name.charAt(0)}
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-sm font-bold text-gray-800 uppercase leading-none">{user.name}</span>
-                    <span className="text-xs text-gray-500 mt-1">{user.email}</span>
+                    <span className="text-sm font-bold text-gray-800 uppercase leading-none">
+                      {user.name}
+                    </span>
+                    <span className="text-xs text-gray-500 mt-1">
+                      {user.email}
+                    </span>
                   </div>
                 </div>
-                <button 
+                <button
                   onClick={() => {
                     logout();
                     setMobileOpen(false);
@@ -324,7 +441,7 @@ const Navbar = () => {
                       to={
                         item.name === "Home Interiors"
                           ? "/home-interiors"
-                          : `/home-interiors/${item.name.toLowerCase().replace(/\s+/g, '-')}`
+                          : `/home-interiors/${item.name.toLowerCase().replace(/\s+/g, "-")}`
                       }
                       className="flex items-center gap-3 py-2 text-[13px] text-gray-600 hover:text-[#e71c24]"
                       onClick={() => setMobileOpen(false)} // Close menu on click
@@ -338,29 +455,79 @@ const Navbar = () => {
               {/* GUIDES Mobile Dropdown implementation */}
               {link.name === "Guides" && (
                 <div className="bg-gray-50 px-6 py-2 border-b border-[#f8f8f8] flex flex-col">
-                  <Link to="/design-ideas/modular-kitchen-design-ideas" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]" onClick={() => setMobileOpen(false)}>Modular Kitchen Design Ideas</Link>
-                  <Link to="/design-ideas/wardrobe-design-ideas" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]" onClick={() => setMobileOpen(false)}>Wardrobe Design Ideas</Link>
-                  <Link to="/design-ideas/bedroom-design-ideas" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]" onClick={() => setMobileOpen(false)}>Bedroom Design Ideas</Link>
-                  <Link to="/design-ideas/living-room-interior-design-ideas" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]" onClick={() => setMobileOpen(false)}>Living Room Interior Design Ideas</Link>
-                  <Link to="/design-ideas/home-interior-design-ideas" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]" onClick={() => setMobileOpen(false)}>Home Interior Design Ideas</Link>
-                  <Link to="/design-ideas/home-decor-trends" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]" onClick={() => setMobileOpen(false)}>Home Decor Trends</Link>
-                  <Link to="/design-ideas/bathroom-design-ideas" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]" onClick={() => setMobileOpen(false)}>Bathroom Design Ideas</Link>
+                  <Link
+                    to="/design-ideas/modular-kitchen-design-ideas"
+                    className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    Modular Kitchen Design Ideas
+                  </Link>
+                  <Link
+                    to="/design-ideas/wardrobe-design-ideas"
+                    className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    Wardrobe Design Ideas
+                  </Link>
+                  <Link
+                    to="/design-ideas/bedroom-design-ideas"
+                    className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    Bedroom Design Ideas
+                  </Link>
+                  <Link
+                    to="/design-ideas/living-room-interior-design-ideas"
+                    className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    Living Room Interior Design Ideas
+                  </Link>
+                  <Link
+                    to="/design-ideas/home-interior-design-ideas"
+                    className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    Home Interior Design Ideas
+                  </Link>
+                  <Link
+                    to="/design-ideas/home-decor-trends"
+                    className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    Home Decor Trends
+                  </Link>
+                  <Link
+                    to="/design-ideas/bathroom-design-ideas"
+                    className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24]"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    Bathroom Design Ideas
+                  </Link>
                 </div>
               )}
               {/* CITIES Mobile Dropdown implementation */}
               {link.name === "Cities" && (
                 <div className="bg-gray-50 px-6 py-4 border-b border-[#f8f8f8] grid grid-cols-2 gap-y-3">
-                  {allCities.slice(0, 10).map((city) => ( // Show top 10 for mobile for brevity
-                    <Link
-                      key={city}
-                      to={`/cities/interior-designers-${city.toLowerCase()}`}
-                      className="text-[13px] text-gray-600 hover:text-[#e71c24] truncate"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {city}
-                    </Link>
-                  ))}
-                  <Link to="/cities" className="col-span-2 text-center text-[#e71c24] font-semibold text-[13px] mt-2 underline" onClick={() => setMobileOpen(false)}>
+                  {allCities.slice(0, 10).map(
+                    (
+                      city, // Show top 10 for mobile for brevity
+                    ) => (
+                      <Link
+                        key={city}
+                        to={`/cities/interior-designers-${city.toLowerCase()}`}
+                        className="text-[13px] text-gray-600 hover:text-[#e71c24] truncate"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {city}
+                      </Link>
+                    ),
+                  )}
+                  <Link
+                    to="/cities"
+                    className="col-span-2 text-center text-[#e71c24] font-semibold text-[13px] mt-2 underline"
+                    onClick={() => setMobileOpen(false)}
+                  >
                     View All Cities
                   </Link>
                 </div>
@@ -368,12 +535,40 @@ const Navbar = () => {
               {/* MORE Mobile Dropdown implementation */}
               {link.name === "More" && (
                 <div className="bg-gray-50 px-6 py-2 border-b border-[#f8f8f8] flex flex-col">
-                  <Link to="/customer-stories" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24] flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-                    <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+                  <Link
+                    to="/customer-stories"
+                    className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24] flex items-center gap-2"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-3 h-3 text-[#e71c24] shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
                     Customer Stories
                   </Link>
-                  <Link to="/blogs" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24] flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-                    <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+                  <Link
+                    to="/blogs"
+                    className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24] flex items-center gap-2"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-3 h-3 text-[#e71c24] shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
                     Blogs
                   </Link>
                 </div>
@@ -382,8 +577,22 @@ const Navbar = () => {
               {/* OFFERINGS Mobile Dropdown implementation */}
               {link.name === "Offerings" && (
                 <div className="bg-gray-50 px-6 py-2 border-b border-[#f8f8f8] flex flex-col">
-                  <Link to="/luxe" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24] flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-                    <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                  <Link
+                    to="/luxe"
+                    className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24] flex items-center gap-2"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-3 h-3 text-[#e71c24] shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
                     HomeLane Luxe
                   </Link>
                 </div>
@@ -392,12 +601,44 @@ const Navbar = () => {
               {/* PRICE CALCULATORS Mobile Dropdown implementation */}
               {link.name === "Price Calculators" && (
                 <div className="bg-gray-50 px-6 py-2 border-b border-[#f8f8f8] flex flex-col">
-                  <Link to="/price-calculator/kitchen" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24] flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-                    <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 15h18" /><rect x="3" y="15" width="18" height="6" rx="0.5" /><rect x="4" y="5" width="7" height="6" rx="0.5" /><rect x="13" y="5" width="7" height="6" rx="0.5" /></svg>
+                  <Link
+                    to="/price-calculator/kitchen"
+                    className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24] flex items-center gap-2"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-4 h-4 text-[#e71c24] shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M3 15h18" />
+                      <rect x="3" y="15" width="18" height="6" rx="0.5" />
+                      <rect x="4" y="5" width="7" height="6" rx="0.5" />
+                      <rect x="13" y="5" width="7" height="6" rx="0.5" />
+                    </svg>
                     Kitchen Price Calculator
                   </Link>
-                  <Link to="/price-calculator/home-interior" className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24] flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-                    <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#e71c24] shrink-0" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9.5L12 3l9 6.5" /><path d="M5 9.5V20a1 1 0 001 1h12a1 1 0 001-1V9.5" /></svg>
+                  <Link
+                    to="/price-calculator/home-interior"
+                    className="py-2 text-[13px] text-gray-600 hover:text-[#e71c24] flex items-center gap-2"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-4 h-4 text-[#e71c24] shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M3 9.5L12 3l9 6.5" />
+                      <path d="M5 9.5V20a1 1 0 001 1h12a1 1 0 001-1V9.5" />
+                    </svg>
                     Home Interior Price Calculator
                   </Link>
                 </div>

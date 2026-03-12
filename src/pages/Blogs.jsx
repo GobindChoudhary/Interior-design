@@ -56,7 +56,7 @@ const Blogs = () => {
     const categoriesToRender = getFilteredCategories();
 
     return (
-        <div className="bg-white min-h-screen pt-24">
+        <div className="bg-white min-h-screen pt-8">
             {/* Top Sub-Navigation Filter */}
             <div className="border-b border-gray-200 mb-16">
                 <div className="max-w-7xl mx-auto px-4 md:px-8">

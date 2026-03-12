@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { scrollToForm } from "./utils/scrollToForm";
 import { AuthProvider } from "./context/AuthContext";
 import AuthModal from "./components/AuthModal";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const location = useLocation();
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <AuthProvider>
+      <ScrollToTop />
       <div className="app flex flex-col min-h-screen relative">
         {!isLuxePage && <Navbar />}
 
@@ -25,7 +27,7 @@ function App() {
 
         {/* Global Components */}
         <AuthModal />
-        
+
         {/* WhatsApp floating button */}
         <a
           href="https://wa.me/18001024663"
