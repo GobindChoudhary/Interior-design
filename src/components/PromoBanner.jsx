@@ -1,4 +1,6 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { scrollToForm } from "../utils/scrollToForm";
 import promoBannerBg from "../assets/promoBannerBG.png";
 // Decorative Trust Icons based on the second screenshot
 const WarrantyShieldIcon = () => (
@@ -185,6 +187,7 @@ const trustFeatures = [
 ];
 
 export default function PromoBanner() {
+  const navigate = useNavigate();
   return (
     <section className="bg-white ">
       {/* Top Gray Section */}
@@ -199,7 +202,7 @@ export default function PromoBanner() {
         }}
         className="bg-[#f8f8f8] pt-16 pb-0 overflow-hidden relative border-t border-gray-200"
       >
-        <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between">
           {/* Left: Text & CTA */}
           <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left z-10 pb-16 md:pb-24">
             <h2 className="text-3xl md:text-[42px] font-normal text-[#212529] mb-4 tracking-tight">
@@ -208,7 +211,7 @@ export default function PromoBanner() {
             <p className="text-xl md:text-[22px] text-gray-600 font-light mb-10">
               Meet a designer who'll bring it all together—free.
             </p>
-            <button className="bg-[#e71c24] text-white px-8 py-3.5 rounded text-lg font-medium hover:bg-[#d61920] transition-colors shadow-lg shadow-red-500/30">
+            <button onClick={() => scrollToForm(navigate)} className="bg-[#e71c24] text-white px-8 py-3.5 rounded-[4px] text-lg font-medium hover:bg-[#c41920] transition-colors shadow-lg shadow-red-500/30">
               Meet a Designer
             </button>
           </div>
@@ -217,7 +220,7 @@ export default function PromoBanner() {
 
       {/* Bottom White Trust Strip */}
       <div className="border-t border-gray-200 border-b relative z-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {trustFeatures.map((feature, idx) => (
               <div

@@ -184,6 +184,49 @@ export const galleryItems = [
     },
 ];
 
+export const guidesLinks = [
+    "Modular Kitchen Design Ideas",
+    "Bedroom Design Ideas",
+    "Home Interior Design Ideas",
+    "Bathroom Design Ideas",
+    "Wardrobe Design Ideas",
+    "Living Room Interior Design Ideas",
+    "Home Decor Trends"
+];
+
+export const offeringsLinks = [
+    {
+        name: "HomeLane",
+        desc: "End-to-End Interior Solutions",
+        icon: (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M3 9.5L12 3l9 6.5M5 9.5V20a1 1 0 001 1h12a1 1 0 001-1V9.5" stroke="#103a68" />
+                <path d="M9 21V12h6v9" stroke="#e71c24" />
+            </svg>
+        )
+    },
+    {
+        name: "HomeLane Luxe",
+        desc: "Luxury Interiors",
+        icon: (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M12 3L4 9l8 12 8-12-8-6z" stroke="#B8860B" />
+                <path d="M4 9h16M8 3l4 6 4-6" stroke="#B8860B" />
+            </svg>
+        )
+    }
+];
+
+export const priceCalculatorLinks = [
+    "Home Interior Price Calculator",
+    "Kitchen Price Calculator"
+];
+
+export const moreLinks = [
+    "Customer Stories",
+    "Blogs"
+];
+
 export const navLinks = [
     { name: "Design Gallery", hasDropdown: true },
     { name: "Guides", hasDropdown: true },

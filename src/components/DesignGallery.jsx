@@ -9,10 +9,11 @@
  *   }>
  */
 import { useState } from 'react';
+import DesignDetailModal from './DesignDetailModal';
 
 const VISIBLE = 4;
 
-function GalleryRow({ title, href = '#', items }) {
+function GalleryRow({ title, href = '#', items, onItemClick }) {
   const [idx, setIdx] = useState(0);
   const maxIdx = Math.max(0, items.length - VISIBLE);
 
@@ -41,20 +42,24 @@ function GalleryRow({ title, href = '#', items }) {
         )}
 
         <div className="grid grid-cols-4 gap-3 overflow-hidden">
-          {items.slice(idx, idx + VISIBLE).map((item, i) => (
-            <div
-              key={`${idx}-${i}`}
-              className="overflow-hidden rounded-xl bg-gray-100 cursor-pointer"
-              style={{ aspectRatio: '4/3' }}
-            >
-              <img
-                src={item.img}
-                alt={item.alt}
-                loading="lazy"
-                className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-300"
-              />
-            </div>
-          ))}
+          {items.slice(idx, idx + VISIBLE).map((item, i) => {
+            const absoluteIndex = idx + i;
+            return (
+              <div
+                key={`${idx}-${i}`}
+                className="overflow-hidden rounded-xl bg-gray-100 cursor-pointer"
+                style={{ aspectRatio: '4/3' }}
+                onClick={() => onItemClick(item, absoluteIndex)}
+              >
+                <img
+                  src={item.img}
+                  alt={item.alt}
+                  loading="lazy"
+                  className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-300"
+                />
+              </div>
+            );
+          })}
         </div>
 
         {/* Right arrow */}
@@ -74,14 +79,57 @@ function GalleryRow({ title, href = '#', items }) {
 }
 
 export default function DesignGallery({ sections = [] }) {
+  const [selectedContext, setSelectedContext] = useState(null); // { sectionIndex, itemIndex }
+
+  const handleNext = () => {
+    if (!selectedContext) return;
+    const { sectionIndex, itemIndex } = selectedContext;
+    const items = sections[sectionIndex].items;
+    const nextIdx = (itemIndex + 1) % items.length;
+    setSelectedContext({ sectionIndex, itemIndex: nextIdx });
+  };
+
+  const handlePrev = () => {
+    if (!selectedContext) return;
+    const { sectionIndex, itemIndex } = selectedContext;
+    const items = sections[sectionIndex].items;
+    const prevIdx = (itemIndex - 1 + items.length) % items.length;
+    setSelectedContext({ sectionIndex, itemIndex: prevIdx });
+  };
+
+  const handleSelectItem = (imgSrc) => {
+    // Find the item in the current section that matches this image source
+    if (!selectedContext) return;
+    const { sectionIndex } = selectedContext;
+    const items = sections[sectionIndex].items;
+    const newItemIndex = items.findIndex(item => item.img === imgSrc);
+    if (newItemIndex !== -1) {
+      setSelectedContext({ sectionIndex, itemIndex: newItemIndex });
+    }
+  };
+
   return (
     <section className="bg-[#f8f8f8] py-8 px-8">
       <div className="max-w-[1400px] mx-auto">
         <div className="h-px bg-[#212529] mb-8" />
-        {sections.map((section, i) => (
-          <GalleryRow key={i} {...section} />
+        {sections.map((section, sIndex) => (
+          <GalleryRow 
+            key={sIndex} 
+            {...section} 
+            onItemClick={(item, iIndex) => setSelectedContext({ sectionIndex: sIndex, itemIndex: iIndex })} 
+          />
         ))}
       </div>
+
+      {selectedContext && (
+        <DesignDetailModal 
+          item={sections[selectedContext.sectionIndex].items[selectedContext.itemIndex]} 
+          onClose={() => setSelectedContext(null)} 
+          onNext={handleNext}
+          onPrev={handlePrev}
+          onSelectItem={handleSelectItem}
+        />
+      )}
     </section>
   );
 }

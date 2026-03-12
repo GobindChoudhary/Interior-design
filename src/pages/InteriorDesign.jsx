@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { scrollToForm } from "../utils/scrollToForm";
 import heroImg from "../assets/interior design.webp";
 import DesignGallery from "../components/DesignGallery";
 import DesignCard from "../components/DesignCard";
@@ -18,6 +19,7 @@ import { faqItems } from "../data/faqData";
 
 const InteriorDesign = () => {
   const { galleryItem } = useParams();
+  const navigate = useNavigate();
 
   // If a specific category is requested
   if (galleryItem) {
@@ -49,7 +51,7 @@ const InteriorDesign = () => {
             <h1 className="text-white text-3xl md:text-5xl font-extrabold leading-tight mb-6 drop-shadow-lg">
               {categoryData.pageTitle.replace(' Shaped Around You', '')}
             </h1>
-            <button className="bg-[#e71c24] hover:bg-[#c41920] text-white text-lg font-bold px-8 py-3 rounded-[4px] transition-colors shadow-lg">
+            <button onClick={() => scrollToForm(navigate)} className="bg-[#e71c24] hover:bg-[#c41920] text-white text-lg font-bold px-8 py-3 rounded-[4px] transition-colors shadow-lg">
               Book 3D Design Session
               <span className="ml-2 align-middle">→</span>
             </button>
@@ -126,7 +128,7 @@ const InteriorDesign = () => {
             Home Interior Designs
 
           </h1>
-          <button className="bg-[#e71c24] hover:bg-[#c41920] text-white text-lg font-bold px-8 py-3 rounded-[4px] transition-colors shadow-lg">
+          <button onClick={() => scrollToForm(navigate)} className="bg-[#e71c24] hover:bg-[#c41920] text-white text-lg font-bold px-8 py-3 rounded-[4px] transition-colors shadow-lg">
             Book 3D Design Session
             <span className="ml-2 align-middle">→</span>
           </button>

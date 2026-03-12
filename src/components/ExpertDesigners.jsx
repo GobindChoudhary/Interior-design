@@ -52,10 +52,10 @@ const ExpertDesigners = ({ title = "Meet Our Expert Designers:", subtitle = "The
             <div className="max-w-[1400px] mx-auto flex flex-col items-center">
 
                 <div className="text-center mb-12">
-                    <h2 className="text-[32px] md:text-[38px] font-normal text-[#212529] leading-tight text-center flex flex-col items-center">
+                    <h2 className="text-[32px] md:text-[38px] font-bold text-[#212529] leading-tight text-center flex flex-col items-center">
                         {title}
                         {subtitle && (
-                            <span className="text-[#555] font-light mt-1 text-[28px] md:text-[32px]">{subtitle}</span>
+                            <span className="text-[#7b7b7b] font-light mt-1 text-[28px] md:text-[32px]">{subtitle}</span>
                         )}
                     </h2>
                 </div>

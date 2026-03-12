@@ -5,7 +5,8 @@
  * All data imported from src/data/
  * Non-reusable sections (Hero, WhyChooseUs, etc.) are inlined here
  */
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
 // ── Reusable components ──────────────────────────────────────────
 import DesignGallery from "../components/DesignGallery";
@@ -13,6 +14,7 @@ import ProcessSteps from "../components/ProcessSteps";
 import FAQ from "../components/FAQ";
 import WhyChooseUs from "../components/WhyChooseUs";
 import CTABanner from "../components/CTABanner";
+import Toast from "../components/Toast";
 
 // ── Data ─────────────────────────────────────────────────────────
 import { gallerySections } from "../data/galleryData";
@@ -42,14 +44,58 @@ function HeroSection() {
     whatsapp: true,
     city: "",
   });
+  const [toast, setToast] = useState({
+    visible: false,
+    message: "",
+    type: "success",
+  });
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    if (searchParams.get("scrollToForm") === "true") {
+      const formEl = document.getElementById("lead-form");
+      if (formEl)
+        formEl.scrollIntoView({ behavior: "smooth", block: "center" });
+      searchParams.delete("scrollToForm");
+      setSearchParams(searchParams, { replace: true });
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Thank you! Our designer will contact you shortly.");
+    if (!form.name || !form.mobile || !form.city) {
+      setToast({
+        visible: true,
+        message: "Please fill in all fields.",
+        type: "error",
+      });
+      return;
+    }
+    const submissions = JSON.parse(
+      localStorage.getItem("homelane_leads") || "[]",
+    );
+    submissions.push({
+      ...form,
+      source: "homepage_hero",
+      timestamp: new Date().toISOString(),
+    });
+    localStorage.setItem("homelane_leads", JSON.stringify(submissions));
+    setToast({
+      visible: true,
+      message: "Thank you! Our designer will contact you shortly.",
+      type: "success",
+    });
+    setForm({ name: "", mobile: "", whatsapp: true, city: "" });
   };
 
   return (
     <>
+      <Toast
+        message={toast.message}
+        visible={toast.visible}
+        type={toast.type}
+        onClose={() => setToast({ ...toast, visible: false })}
+      />
       <section
         className="relative overflow-hidden"
         style={{
@@ -83,13 +129,19 @@ function HeroSection() {
           {/* Lead form */}
           <div
             className="flex-shrink-0 w-[340px] bg-white rounded-lg overflow-hidden"
-            style={{ boxShadow: "0 0 3px #f0f0f0, 0 4px 24px rgba(0,0,0,0.15)" }}
+            style={{
+              boxShadow: "0 0 3px #f0f0f0, 0 4px 24px rgba(0,0,0,0.15)",
+            }}
           >
             <div className="p-6">
               <p className="text-[18px] font-bold text-[#212529] mb-4">
                 Meet a designer
               </p>
-              <form onSubmit={handleSubmit} className="flex flex-col">
+              <form
+                id="lead-form"
+                onSubmit={handleSubmit}
+                className="flex flex-col"
+              >
                 {/* Name */}
                 <div className="border-b border-[#bfbfbf] pb-1 mb-4 focus-within:border-[#e71c24] transition-colors">
                   <input
@@ -110,7 +162,9 @@ function HeroSection() {
                     type="tel"
                     placeholder="Enter your mobile number"
                     value={form.mobile}
-                    onChange={(e) => setForm({ ...form, mobile: e.target.value })}
+                    onChange={(e) =>
+                      setForm({ ...form, mobile: e.target.value })
+                    }
                     className="flex-1 text-[14px] text-[#212529] placeholder-[#7b7b7b] outline-none bg-transparent py-1"
                   />
                 </div>
@@ -121,7 +175,9 @@ function HeroSection() {
                   </span>
                   <button
                     type="button"
-                    onClick={() => setForm({ ...form, whatsapp: !form.whatsapp })}
+                    onClick={() =>
+                      setForm({ ...form, whatsapp: !form.whatsapp })
+                    }
                     className={`relative w-11 h-[22px] rounded-full transition-colors duration-200 flex-shrink-0 ${form.whatsapp ? "bg-[#e71c24]" : "bg-gray-300"}`}
                   >
                     <span
@@ -249,6 +305,7 @@ const estimateIcons = {
 };
 
 function PriceEstimate() {
+  const navigate = useNavigate();
   return (
     <section className="bg-[#f8f8f8] py-12 px-8">
       <div className="max-w-[1400px] mx-auto">
@@ -277,7 +334,16 @@ function PriceEstimate() {
                   {c.desc}
                 </p>
               </div>
-              <button className="w-fit bg-[#e71c24] hover:bg-[#c41920] text-white text-[13px] font-bold px-5 py-2.5 rounded-[4px] transition-colors">
+              <button
+                onClick={() =>
+                  navigate(
+                    c.id === "full-home"
+                      ? "/price-calculator/home-interior"
+                      : "/price-calculator/kitchen",
+                  )
+                }
+                className="w-fit bg-[#e71c24] hover:bg-[#c41920] text-white text-[13px] font-bold px-5 py-2.5 rounded-[4px] transition-colors"
+              >
                 Get Free Estimate
               </button>
             </div>

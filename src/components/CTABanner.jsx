@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { scrollToForm } from '../utils/scrollToForm';
 import { guarantees } from '../data/homeData';
 
 const guaranteeIcons = [
@@ -97,6 +99,7 @@ const guaranteeIcons = [
 ];
 
 export default function CTABanner() {
+    const navigate = useNavigate();
     return (
         <section className="bg-[#f8f8f8]">
             <div className="max-w-[1400px] mx-auto px-8 py-14">
@@ -108,7 +111,7 @@ export default function CTABanner() {
                 <p className="text-[14px] text-[#7b7b7b] mb-6 max-w-md">
                     Meet a designer who'll bring it all together—free.
                 </p>
-                <button className="bg-[#e71c24] hover:bg-[#c41920] text-white font-bold text-[14px] px-8 py-3 rounded-[4px] uppercase tracking-wide transition-colors">
+                <button onClick={() => scrollToForm(navigate)} className="bg-[#e71c24] hover:bg-[#c41920] text-white font-bold text-[14px] px-8 py-3 rounded-[4px] uppercase tracking-wide transition-colors">
                     Meet a Designer
                 </button>
             </div>

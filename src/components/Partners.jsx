@@ -34,14 +34,14 @@ const Partners = () => (
   >
     <div className="max-w-[1400px] mx-auto overflow-hidden">
       {/* News */}
-      <h2 className="text-2xl md:text-3xl font-bold text-[#333] capitalize text-center mb-8 mt-2">
+      <h2 className="text-2xl md:text-3xl font-bold text-[#212529] capitalize text-center mb-8 mt-2">
         We're making news
       </h2>
       <div className="flex flex-row justify-center items-center gap-4 md:gap-6 mb-14 flex-wrap">
         {newsLogos.map((m, i) => (
           <div
             key={i}
-            className="flex items-center justify-center bg-white rounded-[8px] border border-[#e0e0e0] overflow-hidden hover:shadow-md transition-shadow duration-300"
+            className="flex items-center justify-center bg-white rounded-[4px] border border-[#f0f0f0] overflow-hidden hover:shadow-md transition-shadow duration-300"
             style={{ width: 220, height: 80 }}
           >
             <img
@@ -58,7 +58,7 @@ const Partners = () => (
       <div className="h-px mb-14" style={{ background: "#f0f0f0" }} />
 
       {/* Partners */}
-      <h3 className="text-2xl md:text-3xl font-bold text-[#333] capitalize text-center mb-10">
+      <h3 className="text-2xl md:text-3xl font-bold text-[#212529] capitalize text-center mb-10">
         Our trusted partners
       </h3>
       <div

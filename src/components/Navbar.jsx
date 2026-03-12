@@ -2,12 +2,16 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import hlLogo from "../assets/imgi_110_hllogosvg.svg";
 import { allCities } from "../data/cityData";
+import { useAuth } from "../context/AuthContext";
+import { scrollToPrice } from "../utils/navigationUtils";
 
 import { galleryItems, navLinks } from "../data/navbarData";
 
 const Navbar = () => {
+  const { user, logout, openAuthModal } = useAuth();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [userDropdownOpen, setUserDropdownOpen] = useState(false);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 10);
@@ -167,9 +171,63 @@ const Navbar = () => {
 
         {/* Right CTA */}
         <div className="ml-auto flex items-center gap-4 flex-shrink-0">
-          <button className="bg-[#e71c24] hover:bg-[#c41920] text-white text-[14px] font-bold px-6 py-2.5 rounded-[4px] transition-colors whitespace-nowrap">
+          <button 
+            onClick={scrollToPrice}
+            className="bg-[#e71c24] hover:bg-[#c41920] text-white text-[14px] font-bold px-6 py-2.5 rounded-[4px] transition-colors whitespace-nowrap"
+          >
             Get Free Estimate
           </button>
+
+          {/* Desktop Login/User Profile */}
+          <div className="hidden lg:block">
+            {user ? (
+              <div className="relative">
+                <button 
+                  onMouseEnter={() => setUserDropdownOpen(true)}
+                  className="flex items-center gap-2 group cursor-pointer"
+                >
+                  <div className="w-9 h-9 rounded-full bg-red-50 text-[#e71c24] flex items-center justify-center font-bold border border-red-100 uppercase transition-all group-hover:bg-[#e71c24] group-hover:text-white">
+                    {user.name.charAt(0)}
+                  </div>
+                  <svg viewBox="0 0 10 6" className={`w-2.5 h-2.5 text-gray-400 transition-transform duration-300 ${userDropdownOpen ? 'rotate-180' : ''}`}>
+                    <path d="M0 0l5 6 5-6z" fill="currentColor" />
+                  </svg>
+                </button>
+
+                {/* User Dropdown */}
+                {userDropdownOpen && (
+                  <div 
+                    className="absolute top-full right-0 mt-2 w-48 bg-white rounded-lg shadow-[0_10px_40px_rgba(0,0,0,0.1)] border border-gray-100 py-2 z-[60] animate-in fade-in slide-in-from-top-2 duration-200"
+                    onMouseLeave={() => setUserDropdownOpen(false)}
+                  >
+                    <div className="px-4 py-2 border-b border-gray-50">
+                      <p className="text-[12px] font-bold text-gray-400 uppercase tracking-wider">Account</p>
+                      <p className="text-[14px] font-medium text-[#212529] truncate">{user.email}</p>
+                    </div>
+                    <Link to="/profile" className="block px-4 py-2 text-[14px] text-gray-700 hover:bg-gray-50 hover:text-[#e71c24] transition-colors">
+                      My Profile
+                    </Link>
+                    <button 
+                      onClick={() => {
+                        logout();
+                        setUserDropdownOpen(false);
+                      }}
+                      className="w-full text-left px-4 py-2 text-[14px] text-gray-700 hover:bg-gray-50 hover:text-[#e71c24] transition-colors"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <button 
+                onClick={openAuthModal}
+                className="text-[14px] font-bold text-[#212529] hover:text-[#e71c24] transition-colors uppercase tracking-tight"
+              >
+                LOGIN / SIGN UP
+              </button>
+            )}
+          </div>
 
           {/* Mobile hamburger */}
           <button
@@ -205,6 +263,42 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="lg:hidden border-t border-[#f0f0f0] bg-white max-h-[calc(100vh-70px)] overflow-y-auto">
+          {/* Mobile Auth Section */}
+          <div className="p-6 border-b border-gray-100 bg-gray-50/50">
+            {user ? (
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-[#e71c24] text-white flex items-center justify-center font-bold border border-red-100 uppercase">
+                    {user.name.charAt(0)}
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-sm font-bold text-gray-800 uppercase leading-none">{user.name}</span>
+                    <span className="text-xs text-gray-500 mt-1">{user.email}</span>
+                  </div>
+                </div>
+                <button 
+                  onClick={() => {
+                    logout();
+                    setMobileOpen(false);
+                  }}
+                  className="text-xs font-bold text-[#e71c24] uppercase underline underline-offset-4"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={() => {
+                  setMobileOpen(false);
+                  openAuthModal();
+                }}
+                className="w-full py-3.5 bg-[#e71c24] text-white text-[14px] font-bold rounded-lg shadow-lg shadow-red-100 flex items-center justify-center gap-2 hover:bg-[#c41920] transition-all"
+              >
+                LOGIN / SIGN UP
+              </button>
+            )}
+          </div>
+
           {navLinks.map((link) => (
             <div key={link.name}>
               <a

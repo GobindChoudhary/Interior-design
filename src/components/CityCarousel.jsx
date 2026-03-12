@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import leftArrowIcon from '../assets/imgi_150_default.svg';
 import rightArrowIcon from '../assets/imgi_157_default.svg';
@@ -24,8 +24,7 @@ const CityCard = ({ city }) => (
 );
 
 const CityCarousel = ({ cities }) => {
-    const visibleCards = 5; // Can be fine-tuned or responsive via CSS calculation
-    const gap = 24; // 24px gap between items
+    // Triple the array for infinite forward scroll illusion (same logic as testimonials)
 
     // Triple the array for infinite forward scroll illusion (same logic as testimonials)
     const slideItems = [...cities, ...cities, ...cities];
@@ -62,17 +61,17 @@ const CityCarousel = ({ cities }) => {
 
     return (
         <section className="py-20 bg-white overflow-x-hidden w-full relative">
-            <div className="max-w-[1440px] mx-auto px-4 sm:px-8 md:px-12 xl:px-20 text-center mb-12">
-                <h2 className="text-[32px] md:text-[36px] text-[#212529] mb-4">
+            <div className="max-w-[1400px] mx-auto px-4 sm:px-8 md:px-12 xl:px-20 text-center mb-12">
+                <h2 className="text-[32px] md:text-[36px] font-bold text-[#212529] mb-4">
                     Find Us in Your City
                 </h2>
-                <p className="text-[16px] text-[#4a4a4a] max-w-4xl mx-auto leading-relaxed">
+                <p className="text-[16px] text-[#7b7b7b] max-w-4xl mx-auto leading-relaxed">
                     Explore our presence across India—click on your city to get started with your dream living room.
                 </p>
             </div>
 
             <div
-                className="max-w-[1440px] mx-auto relative px-4 sm:px-8 md:px-12 xl:px-20"
+                className="max-w-[1400px] mx-auto relative px-4 sm:px-8 md:px-12 xl:px-20"
                 style={{
                     '--current-index': currentIndex,
                     '--gap': '24px'

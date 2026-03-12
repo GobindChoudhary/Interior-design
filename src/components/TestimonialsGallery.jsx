@@ -24,7 +24,7 @@ const TestimonialCard = ({ testimonial }) => (
 
             {/* Content */}
             <div className="p-6 flex flex-col flex-grow">
-                <p className="text-[14px] text-[#4a4a4a] leading-relaxed mb-6 italic flex-grow">
+                <p className="text-[14px] text-[#7b7b7b] leading-relaxed mb-6 italic flex-grow">
                     "{testimonial.quote}"
                 </p>
                 <div>
@@ -108,10 +108,10 @@ const TestimonialsGallery = ({ testimonials }) => {
             `}</style>
             <div className="max-w-[1400px] mx-auto px-4 sm:px-12 md:px-20 relative">
                 <div className="text-center mb-10">
-                    <h2 className="text-[32px] md:text-[38px] font-normal text-[#212529] mb-4">
+                    <h2 className="text-[32px] md:text-[38px] font-bold text-[#212529] mb-4">
                         55000+ Homes Designed with Love
                     </h2>
-                    <p className="text-[16px] text-[#4a4a4a] max-w-4xl mx-auto leading-relaxed">
+                    <p className="text-[16px] text-[#7b7b7b] max-w-4xl mx-auto leading-relaxed">
                         Every living room you see here was shaped by the rhythms of daily life—quiet mornings, lively evenings, and everything in between. These spaces reflect different ways of living, each one thoughtfully designed by the HomeLane team to feel just right! Let these living room interiors spark ideas for your own perfect home.
                     </p>
                 </div>

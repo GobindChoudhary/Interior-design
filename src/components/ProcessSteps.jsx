@@ -155,7 +155,7 @@ export default function ProcessSteps({
             </button>
           </div>
           {/* CTA Button */}
-          <button className="mt-8 bg-[#e71c24] hover:bg-[#c41920] text-white font-bold text-[20px] px-12 py-4 rounded-[6px] uppercase tracking-wide transition-colors">
+          <button className="mt-8 bg-[#e71c24] hover:bg-[#c41920] text-white font-bold text-[20px] px-12 py-4 rounded-[4px] uppercase tracking-wide transition-colors">
             {ctaLabel}
           </button>
         </div>

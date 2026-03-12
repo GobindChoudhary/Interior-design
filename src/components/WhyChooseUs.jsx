@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 // Exact SVG replicas of the 7 features from the HomeLane "Why Choose Us" row
 
