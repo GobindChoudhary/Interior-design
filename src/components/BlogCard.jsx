@@ -33,7 +33,7 @@ const BlogCard = ({ blog, categoryId }) => {
       <div className="flex flex-col flex-grow px-4 text-center">
         {/* Meta Info: Category, Date & Read Time */}
         <p className="text-[11px] font-semibold text-gray-500 tracking-wider mb-2 uppercase">
-          in <span className="text-[#e71c24]">{blog.category}</span> -{" "}
+          in <span className="text-[#e0b855]">{blog.category}</span> -{" "}
           {blog.date} -
         </p>
         <p className="text-[11px] text-gray-400 tracking-widest mb-4 uppercase">
@@ -42,7 +42,7 @@ const BlogCard = ({ blog, categoryId }) => {
 
         {/* Title - Clickable */}
         <Link to={`/design-ideas/${categoryId}/${blog.id}`}>
-          <h3 className="text-[22px] font-normal leading-tight text-[#333] mb-4 hover:text-[#e71c24] transition-colors duration-300">
+          <h3 className="text-[22px] font-normal leading-tight text-[#333] mb-4 hover:text-[#e0b855] transition-colors duration-300">
             {blog.title}
           </h3>
         </Link>
@@ -64,7 +64,7 @@ const BlogCard = ({ blog, categoryId }) => {
         <div className="flex flex-col items-center gap-4 mt-2 mb-4 border-t border-gray-100 pt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <Link
             to={`/design-ideas/${categoryId}/${blog.id}`}
-            className="text-[11px] font-semibold tracking-widest text-[#e71c24] border border-[#e71c24] px-6 py-2 rounded-[4px] hover:bg-[#e71c24] hover:text-white transition-colors duration-300"
+            className="text-[11px] font-semibold tracking-widest text-[#e0b855] border border-[#e0b855] px-6 py-2 rounded-[4px] hover:bg-[#e0b855] hover:text-white transition-colors duration-300"
           >
             KEEP READING
           </Link>

@@ -1,11 +1,11 @@
 export const faqItems = [
   {
-    q: 'What is HomeLane?',
-    a: 'HomeLane is a home interior design company providing end-to-end interior solutions across India, with 74+ studios in 42+ cities and guaranteed delivery in 45 days with a flat 10-year warranty.',
+    q: 'What is Leonex Interio?',
+    a: 'Leonex Interio is a premium house of high-quality interior design, providing end-to-end interior solutions based in Hyderabad, offering guaranteed delivery with a flat 10-year warranty.',
   },
   {
     q: 'How long does it take to complete home interiors?',
-    a: 'HomeLane guarantees delivery within 45 days* from design finalization and material selection. This includes manufacturing, quality checks, and installation at your home.',
+    a: 'Leonex Interio typically delivers within 45 to 60 days from design finalization and material selection. This includes manufacturing, quality checks, and installation at your home.',
   },
   {
     q: 'What is included in a full home interior package?',
@@ -13,11 +13,11 @@ export const faqItems = [
   },
   {
     q: 'Do you offer EMI options?',
-    a: 'Yes! HomeLane offers easy 0% interest EMI options through partner banks and NBFCs. Split your interior cost into convenient monthly installments with no extra charge.',
+    a: 'Yes! Leonex Interio offers easy 0% interest EMI options through partner banks and NBFCs. Split your interior cost into convenient monthly installments.',
   },
   {
-    q: 'What warranty does HomeLane provide?',
-    a: 'HomeLane offers a flat 10-year warranty on all modular furniture including kitchens, wardrobes, and storage units. This covers manufacturing defects and hardware failures.',
+    q: 'What warranty does Leonex Interio provide?',
+    a: 'Leonex Interio offers a flat 10-year warranty on all modular furniture including kitchens, wardrobes, and storage units. This covers manufacturing defects and hardware failures.',
   },
   {
     q: 'How do I book a free design session?',

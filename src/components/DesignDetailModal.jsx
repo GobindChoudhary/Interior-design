@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { scrollToForm } from '../utils/navigationUtils';
+import { Link } from 'react-router-dom';
 
 const DesignDetailModal = ({ item, onClose, onNext, onPrev, onSelectItem }) => {
   const [isWishlisted, setIsWishlisted] = useState(false);
-  const navigate = useNavigate();
 
   if (!item) return null;
 
@@ -19,13 +17,6 @@ const DesignDetailModal = ({ item, onClose, onNext, onPrev, onSelectItem }) => {
       navigator.clipboard.writeText(url);
       alert(`${platform.charAt(0).toUpperCase() + platform.slice(1)}: Link copied to clipboard!`);
     }
-  };
-
-  const handleBookSession = () => {
-    onClose();
-    setTimeout(() => {
-      scrollToForm(navigate);
-    }, 300);
   };
 
   return (
@@ -73,7 +64,12 @@ const DesignDetailModal = ({ item, onClose, onNext, onPrev, onSelectItem }) => {
 
           {/* WhatsApp Floating Icon (as per image) */}
           <div className="absolute bottom-6 right-6">
-            <a href="#" className="w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+            <a 
+              href="https://wa.me/919701122528" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+            >
               <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
               </svg>
@@ -91,7 +87,7 @@ const DesignDetailModal = ({ item, onClose, onNext, onPrev, onSelectItem }) => {
                 {item.name}
               </h2>
               <p className="text-[13px] text-gray-500 mb-6 flex items-center gap-1">
-                {item.description} <span className="text-[#e71c24] font-bold cursor-pointer hover:underline ml-1">More</span>
+                {item.description} <span className="text-[#e0b855] font-bold cursor-pointer hover:underline ml-1">More</span>
               </p>
 
               {/* Specs Grid */}
@@ -118,23 +114,23 @@ const DesignDetailModal = ({ item, onClose, onNext, onPrev, onSelectItem }) => {
               <div className="flex items-center justify-between py-6 border-t border-b border-gray-100 mb-8">
                 <div className="flex flex-col items-center text-center px-2">
                   <div className="w-10 h-10 mb-2">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#e71c24" strokeWidth="1.5"><path d="M12 2l3 6 6 1-4.5 4.5L17.5 20l-5.5-3-5.5 3 1-6.5L3 9l6-1z" /></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#e0b855" strokeWidth="1.5"><path d="M12 2l3 6 6 1-4.5 4.5L17.5 20l-5.5-3-5.5 3 1-6.5L3 9l6-1z" /></svg>
                   </div>
                   <span className="text-[10px] text-gray-500 leading-tight">Flat 10 year warranty</span>
                 </div>
                 <div className="flex flex-col items-center text-center px-2 border-l border-gray-100">
-                  <div className="w-10 h-10 mb-2 flex items-center justify-center font-bold text-[#e71c24] border-2 border-[#e71c24] rounded-md text-sm">45</div>
+                  <div className="w-10 h-10 mb-2 flex items-center justify-center font-bold text-[#e0b855] border-2 border-[#e0b855] rounded-md text-sm">45</div>
                   <span className="text-[10px] text-gray-500 leading-tight">45-days delivery*</span>
                 </div>
                 <div className="flex flex-col items-center text-center px-2 border-l border-gray-100">
                   <div className="w-10 h-10 mb-2">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#e71c24" strokeWidth="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#e0b855" strokeWidth="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /></svg>
                   </div>
                   <span className="text-[10px] text-gray-500 leading-tight">600+ design experts</span>
                 </div>
                 <div className="flex flex-col items-center text-center px-2 border-l border-gray-100">
                   <div className="w-10 h-10 mb-2">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#e71c24" strokeWidth="1.5"><path d="M14.5 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V7.5L14.5 2z" /><path d="M14 2v6h6M12 18l-2-2 2-2M15 16h-5" /></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#e0b855" strokeWidth="1.5"><path d="M14.5 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V7.5L14.5 2z" /><path d="M14 2v6h6M12 18l-2-2 2-2M15 16h-5" /></svg>
                   </div>
                   <span className="text-[10px] text-gray-500 leading-tight">Post-installation service</span>
                 </div>
@@ -142,15 +138,17 @@ const DesignDetailModal = ({ item, onClose, onNext, onPrev, onSelectItem }) => {
 
               {/* Main CTAs */}
               <div className="space-y-4 mb-8">
-                <button 
-                  onClick={handleBookSession}
-                  className="w-full bg-[#e71c24] hover:bg-[#c41920] text-white font-bold py-4 rounded-lg transition-all shadow-lg shadow-red-100 uppercase tracking-wider text-[14px]"
+                <a 
+                  href="https://wa.me/919701122528"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full bg-[#e0b855] hover:bg-[#c4a14a] text-white font-bold py-4 rounded-lg transition-all shadow-lg shadow-gold-100 uppercase tracking-wider text-[14px] text-center"
                 >
                   Book Free Design Session
-                </button>
+                </a>
                 <button 
                   onClick={() => setIsWishlisted(!isWishlisted)}
-                  className={`w-full border font-bold py-4 rounded-lg transition-all flex items-center justify-center gap-2 uppercase tracking-tight text-[14px] ${isWishlisted ? 'border-[#e71c24] text-[#e71c24] bg-red-50' : 'border-gray-300 text-gray-600 hover:border-[#e71c24] hover:text-[#e71c24]'}`}
+                  className={`w-full border font-bold py-4 rounded-lg transition-all flex items-center justify-center gap-2 uppercase tracking-tight text-[14px] ${isWishlisted ? 'border-[#e0b855] text-[#e0b855] bg-gold-50/10' : 'border-gray-300 text-gray-600 hover:border-[#e0b855] hover:text-[#e0b855]'}`}
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill={isWishlisted ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
                     <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
@@ -177,7 +175,7 @@ const DesignDetailModal = ({ item, onClose, onNext, onPrev, onSelectItem }) => {
                   </button>
                   <button 
                     onClick={() => handleShare('pinterest')}
-                    className="w-10 h-10 rounded-full bg-[#f8f8f8] hover:bg-red-50 text-red-600 flex items-center justify-center transition-colors"
+                    className="w-10 h-10 rounded-full bg-[#f8f8f8] hover:bg-gold-50/10 text-red-600 flex items-center justify-center transition-colors"
                   >
                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.47 2 2 6.47 2 12c0 4.59 3.29 8.42 7.5 9.21v-2a6 6 0 01-2-1.29l1.41-1.42A4 4 0 1012 6c-2.21 0-4 1.79-4 4h2l-3 3-3-3h2c0-3.31 2.69-6 6-6s6 2.69 6 6-2.69 6-6 6v2a8 8 0 110-16z" /></svg>
                   </button>

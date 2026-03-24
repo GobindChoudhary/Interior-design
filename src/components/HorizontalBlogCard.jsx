@@ -32,13 +32,13 @@ const HorizontalBlogCard = ({ blog, categoryId }) => {
             <div className="w-full md:w-[55%] lg:w-[60%] flex flex-col justify-start py-2">
 
                 {/* Slanted Category Category */}
-                <p className="text-[11px] font-semibold text-[#e71c24] tracking-wider mb-3 uppercase italic">
+                <p className="text-[11px] font-semibold text-[#e0b855] tracking-wider mb-3 uppercase italic">
                     in {blog.category}
                 </p>
 
                 {/* Title */}
                 <Link to={`/design-ideas/${categoryId}/${blog.id}`}>
-                    <h3 className="text-2xl md:text-3xl font-normal leading-tight text-[#222] mb-4 hover:text-[#e71c24] transition-colors duration-300">
+                    <h3 className="text-2xl md:text-3xl font-normal leading-tight text-[#222] mb-4 hover:text-[#e0b855] transition-colors duration-300">
                         {blog.title}
                     </h3>
                 </Link>
@@ -56,7 +56,7 @@ const HorizontalBlogCard = ({ blog, categoryId }) => {
                 {/* Icon Strip (Bottom) */}
                 <div className="flex items-center gap-6 mt-auto">
                     {/* Heart Counter */}
-                    <div className="flex items-center gap-2 text-gray-400 hover:text-[#e71c24] cursor-pointer transition-colors">
+                    <div className="flex items-center gap-2 text-gray-400 hover:text-[#e0b855] cursor-pointer transition-colors">
                         <i className="fas fa-heart text-sm"></i>
                         <span className="text-xs font-semibold">0</span>
                     </div>

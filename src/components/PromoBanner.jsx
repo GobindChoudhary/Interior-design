@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { scrollToForm } from "../utils/scrollToForm";
-import promoBannerBg from "../assets/promoBannerBG.png";
+import { imageAssets } from "../data/imageAssets";
 // Decorative Trust Icons based on the second screenshot
 const WarrantyShieldIcon = () => (
   <svg
@@ -18,11 +18,11 @@ const WarrantyShieldIcon = () => (
       strokeLinejoin="round"
       fill="white"
     />
-    <path d="M24 38L40 28V62C30 58 24 48 24 38Z" fill="#e71c24" opacity="0.1" />
+    <path d="M24 38L40 28V62C30 58 24 48 24 38Z" fill="#e0b855" opacity="0.1" />
     {/* Checkmark inside shield */}
     <path
       d="M30 42L38 50L50 34"
-      stroke="#e71c24"
+      stroke="#e0b855"
       strokeWidth="3"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -54,7 +54,7 @@ const CalendarIcon = () => (
       y1="16"
       x2="28"
       y2="32"
-      stroke="#e71c24"
+      stroke="#e0b855"
       strokeWidth="3"
       strokeLinecap="round"
     />
@@ -63,7 +63,7 @@ const CalendarIcon = () => (
       y1="16"
       x2="52"
       y2="32"
-      stroke="#e71c24"
+      stroke="#e0b855"
       strokeWidth="3"
       strokeLinecap="round"
     />
@@ -73,7 +73,7 @@ const CalendarIcon = () => (
       textAnchor="middle"
       fontSize="16"
       fontWeight="bold"
-      fill="#e71c24"
+      fill="#e0b855"
       fontFamily="sans-serif"
     >
       45
@@ -109,7 +109,7 @@ const SealIcon = () => (
     />
     <path
       d="M30 36L38 44L50 28"
-      stroke="#e71c24"
+      stroke="#e0b855"
       strokeWidth="3"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -143,7 +143,7 @@ const ToolsIcon = () => (
     {/* Wrench shape crossing */}
     <path
       d="M30 50L44 36C46 34 50 34 52 38C54 42 50 46 48 44L34 58"
-      stroke="#e71c24"
+      stroke="#e0b855"
       strokeWidth="3"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -193,7 +193,7 @@ export default function PromoBanner() {
       {/* Top Gray Section */}
       <div
         style={{
-          backgroundImage: `url(${promoBannerBg})`,
+          backgroundImage: `url(${imageAssets.promoBannerBg})`,
           backgroundPosition: "right bottom",
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
@@ -213,7 +213,7 @@ export default function PromoBanner() {
             </p>
             <button
               onClick={() => scrollToForm(navigate)}
-              className="bg-[#e71c24] text-white px-8 py-3.5 rounded-[4px] text-lg font-medium hover:bg-[#c41920] transition-colors shadow-lg shadow-red-500/30"
+              className="bg-[#e0b855] text-white px-8 py-3.5 rounded-[4px] text-lg font-medium hover:bg-[#c4a14a] transition-colors shadow-lg shadow-gold-500/30"
             >
               Meet a Designer
             </button>

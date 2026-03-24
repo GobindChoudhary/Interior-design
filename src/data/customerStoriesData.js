@@ -6,14 +6,14 @@ export const customerStoriesData = [
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
     city: "Mumbai",
     propertyName: "Crescent Bay",
-    quote: "Our dream home was designed as beautifully as we pictured it - that's what's unique about the HomeLane experience.",
+    quote: "Our dream home was designed as beautifully as we pictured it - that's what's unique about the Leonex Interio experience.",
   },
   {
     id: 2,
     image: "https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=800&auto=format&fit=crop",
     city: "Bengaluru",
     propertyName: "Parimala skyview",
-    quote: "Hats off to HomeLane's design expertise. They designed our dream home just the way we wanted.",
+    quote: "Hats off to Leonex Interio's design expertise. They designed our dream home just the way we wanted.",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ export const customerStoriesData = [
   },
   {
     id: 4,
-    image: "https://images.unsplash.com/photo-1583847268964-b28ce8f31586?q=80&w=800&auto=format&fit=crop",
+    image: "https://media.istockphoto.com/id/1213695547/photo/3d-rendering-of-an-elegant-bedroom.webp?a=1&b=1&s=612x612&w=0&k=20&c=jswcSM68zoLPkx-BAfIGp1gedm_Zx4O-DElOKp4LrGo=",
     city: "Pune",
     propertyName: "Amanora Park Town",
     quote: "We are so happy with the space-saving furniture recommendations. It made our 2BHK look expansive and chic.",
@@ -34,7 +34,7 @@ export const customerStoriesData = [
     image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=800&auto=format&fit=crop",
     city: "Hyderabad",
     propertyName: "My Home Bhooja",
-    quote: "From 3D visualization to final handover, the transparency in the process is why we trusted HomeLane completely.",
+    quote: "From 3D visualization to final handover, the transparency in the process is why we trusted Leonex Interio completely.",
   },
   {
     id: 6,

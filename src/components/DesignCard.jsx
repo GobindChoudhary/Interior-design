@@ -33,7 +33,7 @@ const DesignCard = ({ title, images }) => {
                 <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 {/* Heart Icon - Only visible on hover in the screenshot, but lets make it always faintly visible and bold on hover */}
-                <button className="absolute top-4 right-4 p-2 bg-black/20 hover:bg-black/40 hover:text-[#e71c24] rounded-full text-white transition-all backdrop-blur-sm z-10">
+                <button className="absolute top-4 right-4 p-2 bg-black/20 hover:bg-black/40 hover:text-[#e0b855] rounded-full text-white transition-all backdrop-blur-sm z-10">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                     </svg>
@@ -57,7 +57,7 @@ const DesignCard = ({ title, images }) => {
                 <h3 className="text-[15px] font-medium text-[#212529] leading-tight flex-1">
                     {title}
                 </h3>
-                <button className="shrink-0 text-[13px] font-bold text-[#e71c24] border border-[#e71c24] px-4 py-1.5 rounded-[4px] hover:bg-[#ffebee] transition-colors">
+                <button className="shrink-0 text-[13px] font-bold text-[#e0b855] border border-[#e0b855] px-4 py-1.5 rounded-[4px] hover:bg-[#ffebee] transition-colors">
                     Get Quote
                 </button>
             </div>

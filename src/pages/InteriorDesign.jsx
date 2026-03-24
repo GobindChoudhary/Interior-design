@@ -1,25 +1,18 @@
 import React from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
-import { scrollToForm } from "../utils/scrollToForm";
-import heroImg from "../assets/interior design.webp";
+import { Link, useParams } from "react-router-dom";
+import { imageAssets } from "../data/imageAssets";
 import DesignGallery from "../components/DesignGallery";
 import DesignCard from "../components/DesignCard";
 import ExpertDesigners from "../components/ExpertDesigners";
 import { gallerySections } from "../data/galleryData";
-import { galleryDataMap, livingRoomTestimonials } from "../data/galleryDesigns";
-import TestimonialsGallery from "../components/TestimonialsGallery";
+import { galleryDataMap } from "../data/galleryDesigns";
 import WhyChooseUs from "../components/WhyChooseUs";
 import CTABanner from "../components/CTABanner";
-import ProcessSteps from "../components/ProcessSteps";
-import { processSteps } from "../data/processData";
-import CityCarousel from "../components/CityCarousel";
-import { cityData } from "../data/cityData";
 import FAQ from "../components/FAQ";
 import { faqItems } from "../data/faqData";
 
 const InteriorDesign = () => {
   const { galleryItem } = useParams();
-  const navigate = useNavigate();
 
   // If a specific category is requested
   if (galleryItem) {
@@ -30,7 +23,7 @@ const InteriorDesign = () => {
         <div className="w-full min-h-[70vh] bg-gray-50 flex flex-col items-center justify-center p-8 text-center text-[#212529]">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Category Not Found</h1>
           <p className="text-lg text-[#7b7b7b] mb-8">We couldn't find designs for "{galleryItem}".</p>
-          <Link to="/home-interiors" className="bg-[#e71c24] text-white px-8 py-3 rounded-md font-bold hover:bg-[#c41920] transition-colors">
+          <Link to="/home-interiors" className="bg-[#e0b855] text-white px-8 py-3 rounded-md font-bold hover:bg-[#c4a14a] transition-colors">
             View All Designs
           </Link>
         </div>
@@ -40,7 +33,7 @@ const InteriorDesign = () => {
     const formattedBreadcrumb = galleryItem.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
     return (
-      <div className="w-full min-h-screen bg-white">
+      <div className="w-full min-h-screen bg-transparent">
         {/* Specific Category Hero */}
         <div
           className="relative w-full h-[420px] md:h-[480px] lg:h-[700px] bg-cover bg-center flex items-center pt-[70px]"
@@ -49,30 +42,33 @@ const InteriorDesign = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
           <div className="relative z-10 max-w-3xl px-8 md:px-16">
             <h1 className="text-white text-3xl md:text-5xl font-extrabold leading-tight mb-6 drop-shadow-lg">
-              {categoryData.pageTitle.replace(' Shaped Around You', '')}
+              {categoryData.headerTitle}
             </h1>
-            <button onClick={() => scrollToForm(navigate)} className="bg-[#e71c24] hover:bg-[#c41920] text-white text-lg font-bold px-8 py-3 rounded-[4px] transition-colors shadow-lg">
+            <Link 
+              to={galleryItem === 'modular-kitchen' ? "/price-calculator/kitchen" : "/price-calculator/home-interior"} 
+              className="inline-block bg-[#e0b855] hover:bg-[#c4a14a] text-white text-lg font-bold px-8 py-3 rounded-[4px] transition-colors shadow-lg"
+            >
               Book 3D Design Session
               <span className="ml-2 align-middle">→</span>
-            </button>
+            </Link>
           </div>
         </div>
 
         {/* Category Breadcrumb */}
-        <div className="w-full bg-white border-b border-gray-200">
-          <div className="max-w-[1400px] mx-auto px-8 py-3 flex items-center text-sm text-[#e71c24] gap-2">
-            <Link to="/" className="text-gray-500 hover:text-[#e71c24]">
+        <div className="w-full bg-transparent border-b border-gray-200 font-cinzel">
+          <div className="max-w-[1400px] mx-auto px-8 py-3 flex items-center text-sm text-[#e0b855] gap-2">
+            <Link to="/" className="text-gray-500 hover:text-[#e0b855]">
               Home
             </Link>
             <span className="text-gray-400">/</span>
             <Link
               to="/home-interiors"
-              className="text-gray-500 hover:text-[#e71c24]"
+              className="text-gray-500 hover:text-[#e0b855]"
             >
               Design Gallery
             </Link>
             <span className="text-gray-400">/</span>
-            <span className="text-[#e71c24] font-semibold">{formattedBreadcrumb}</span>
+            <span className="text-[#e0b855] font-semibold">{formattedBreadcrumb}</span>
           </div>
         </div>
 
@@ -98,17 +94,9 @@ const InteriorDesign = () => {
             <ExpertDesigners />
           </div>
 
-          <div className="mb-20">
-            <TestimonialsGallery testimonials={categoryData.testimonials} />
+          <div className="max-w-[760px] mx-auto px-4 py-8 mb-20 mt-10">
+            <FAQ items={faqItems} title="Frequently asked questions" />
           </div>
-
-          <ProcessSteps steps={processSteps} />
-        </div>
-
-        <CityCarousel cities={cityData} />
-
-        <div className="max-w-[760px] mx-auto px-4 py-8 mb-20 mt-10">
-          <FAQ items={faqItems} title="Frequently asked questions" />
         </div>
       </div>
     );
@@ -116,57 +104,39 @@ const InteriorDesign = () => {
 
   // If NO parameter (Hub View)
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-transparent">
       {/* 1. Hero Section */}
       <div
         className="relative w-full h-[420px] md:h-[480px] lg:h-[700px] bg-cover bg-center flex items-center pt-[70px]"
-        style={{ backgroundImage: `url(${heroImg})` }}
+        style={{ backgroundImage: `url(${imageAssets.interiorDesignHero})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
         <div className="relative z-10 max-w-3xl px-8 md:px-16">
           <h1 className="text-white text-3xl md:text-5xl font-extrabold leading-tight mb-6 drop-shadow-lg">
             Home Interior Designs
-
           </h1>
-          <button onClick={() => scrollToForm(navigate)} className="bg-[#e71c24] hover:bg-[#c41920] text-white text-lg font-bold px-8 py-3 rounded-[4px] transition-colors shadow-lg">
+          <Link to="/price-calculator/home-interior" className="inline-block bg-[#e0b855] hover:bg-[#c4a14a] text-white text-lg font-bold px-8 py-3 rounded-[4px] transition-colors shadow-lg">
             Book 3D Design Session
             <span className="ml-2 align-middle">→</span>
-          </button>
+          </Link>
         </div>
       </div>
 
-      {/* 2. Breadcrumbs (Optional, matching regular flow) */}
-      <div className="w-full bg-white border-b border-gray-200 hidden md:block">
+      {/* 2. Breadcrumbs */}
+      <div className="w-full bg-transparent border-b border-gray-200 hidden md:block font-cinzel">
         <div className="max-w-[1400px] mx-auto px-8 py-3 flex items-center text-sm gap-2">
-          <Link to="/" className="text-gray-500 hover:text-[#e71c24]">
+          <Link to="/" className="text-gray-500 hover:text-[#e0b855]">
             Home
           </Link>
           <span className="text-gray-400">/</span>
-          <span className="text-[#e71c24] font-semibold">Home Interior Designs</span>
+          <span className="text-[#e0b855] font-semibold">Home Interior Designs</span>
         </div>
       </div>
 
-      {/* 3. DesignGallery Hub view */}
       <DesignGallery sections={gallerySections} />
-
-      {/* 4. Success Stories (Testimonials) */}
-      <div className="py-2">
-        <TestimonialsGallery testimonials={livingRoomTestimonials} />
-      </div>
-
-      {/* 5. Why HomeLane? */}
       <WhyChooseUs />
-
-      {/* 6. Free Estimate CTA Banner */}
       <CTABanner />
 
-      {/* 7. Process Steps */}
-      <ProcessSteps steps={processSteps} />
-
-      {/* 8. Locate a Studio */}
-      <CityCarousel cities={cityData} />
-
-      {/* 9. FAQs */}
       <div className="max-w-[760px] mx-auto px-4 py-8 mb-20">
         <FAQ items={faqItems} title="FAQs on Home Interiors and Designers" />
       </div>

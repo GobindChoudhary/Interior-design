@@ -2,35 +2,28 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AppRoutes from "./routes/AppRoutes";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { scrollToForm } from "./utils/scrollToForm";
-import { AuthProvider } from "./context/AuthContext";
-import AuthModal from "./components/AuthModal";
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
-  const location = useLocation();
   const navigate = useNavigate();
-  const isLuxePage = location.pathname === '/luxe';
 
   return (
-    <AuthProvider>
+    <>
       <ScrollToTop />
       <div className="app flex flex-col min-h-screen relative">
-        {!isLuxePage && <Navbar />}
+        <Navbar />
 
-        <main className={`flex-grow min-h-screen ${!isLuxePage ? 'pt-[70px]' : ''}`}>
+        <main className="flex-grow min-h-screen pt-[70px]">
           <AppRoutes />
         </main>
 
         <Footer />
 
-        {/* Global Components */}
-        <AuthModal />
-
         {/* WhatsApp floating button */}
         <a
-          href="https://wa.me/18001024663"
+          href="https://wa.me/919701122528"
           target="_blank"
           rel="noopener noreferrer"
           className="fixed bottom-20 right-5 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
@@ -47,12 +40,12 @@ function App() {
           <span className="text-xs font-semibold text-gray-700">
             We're Online!
           </span>
-          <button onClick={() => scrollToForm(navigate)} className="bg-[#e71c24] text-white text-xs font-bold px-4 py-1.5 rounded-full hover:bg-[#c41920] transition-colors">
+          <button onClick={() => scrollToForm(navigate)} className="bg-[#e0b855] text-white text-xs font-bold px-4 py-1.5 rounded-full hover:bg-[#c4a14a] transition-colors">
             Connect
           </button>
         </div>
       </div>
-    </AuthProvider>
+    </>
   );
 }
 

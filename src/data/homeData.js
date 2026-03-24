@@ -6,17 +6,6 @@ import inc42Logo    from '../assets/imgi_68_inc4202.jpg';
 import etLogo       from '../assets/imgi_69_et02.jpg';
 import fevLogo      from '../assets/imgi_74_fev02.jpg';
 
-import asianLogo    from '../assets/imgi_76_Asian.png';
-import ebcoLogo     from '../assets/imgi_77_Ebco.png';
-import rehauLogo    from '../assets/imgi_83_Rehau.png';
-import heritageLogo from '../assets/imgi_80_Heritage.png';
-import merinoLogo   from '../assets/imgi_82_Merino.png';
-import stylamLogo   from '../assets/imgi_85_Stylam.png';
-import cromtponLogo from '../assets/imgi_91_Crompton.png';
-import boschLogo    from '../assets/imgi_92_Bosch.png';
-import philipsLogo  from '../assets/imgi_97_Philips.png';
-import wiproLogo    from '../assets/imgi_98_Wipro.png';
-
 // ---- Features strip ----
 export const features = [
   { label: '74 Studios',              stat: '74+' },
@@ -50,21 +39,6 @@ export const newsLogos = [
   { img: inc42Logo,    name: 'Inc42' },
   { img: etLogo,       name: 'ET Realty' },
   { img: fevLogo,      name: 'Fevicol' },
-];
-
-// ---- Partner logos ----
-export const partnerLogos = [
-  { img: asianLogo,    name: 'Asian Paints' },
-  { img: ebcoLogo,     name: 'Ebco' },
-  { img: rehauLogo,    name: 'Rehau' },
-  { img: heritageLogo, name: 'Heritage' },
-  { img: merinoLogo,   name: 'Merino' },
-  { img: stylamLogo,   name: 'Stylam' },
-  { img: nipponLogo,   name: 'Nippon Paint' },
-  { img: cromtponLogo, name: 'Crompton' },
-  { img: boschLogo,    name: 'Bosch' },
-  { img: philipsLogo,  name: 'Philips' },
-  { img: wiproLogo,    name: 'Wipro' },
 ];
 
 // ---- Guarantee strip ----

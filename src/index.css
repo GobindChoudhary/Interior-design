@@ -2,13 +2,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap');
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Cinzel Decorative';
+  src: url('./assets/Cinzel_Decorative/CinzelDecorative-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cinzel Decorative';
+  src: url('./assets/Cinzel_Decorative/CinzelDecorative-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cinzel Decorative';
+  src: url('./assets/Cinzel_Decorative/CinzelDecorative-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-sans: 'Lato', sans-serif;
   --font-serif: 'Playfair Display', serif;
   --font-script: 'Great Vibes', cursive;
-  --color-hl-red: #e71c24;
-  --color-hl-red-dark: #c41920;
-  --color-hl-bg: #f8f8f8;
+  --font-cinzel: 'Cinzel Decorative', serif;
+  --color-hl-red: #e0b855;
+  --color-hl-red-dark: #c4a14a;
+  --color-hl-bg: #eae8e3;
   --color-hl-border: #f0f0f0;
   --color-hl-text: #212529;
   --color-hl-muted: #7b7b7b;
@@ -27,8 +52,12 @@ html {
 body {
   font-family: 'Lato', sans-serif;
   color: #212529;
-  background: #fff;
+  background: #eae8e3;
   -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-cinzel);
 }
 
 /* Thin red scrollbar */
@@ -42,6 +71,6 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e71c24;
+  background: #e0b855;
   border-radius: 4px;
 }

@@ -20,7 +20,7 @@ const filterTabs = [
         categories: ["modular-kitchen-design-ideas", "wardrobe-design-ideas"]
     },
     {
-        displayName: "Interiors By HomeLane",
+        displayName: "Interiors By Leonex Interio",
         categories: ["home-interior-design-ideas"]
     },
     {
@@ -50,13 +50,13 @@ const Blogs = () => {
         }
 
         // Filter the object entries where the slug (key) is in the tab's categories array
-        return allCategories.filter(([slug, _]) => tabConfig.categories.includes(slug));
+        return allCategories.filter(([slug]) => tabConfig.categories.includes(slug));
     };
 
     const categoriesToRender = getFilteredCategories();
 
     return (
-        <div className="bg-white min-h-screen pt-8">
+        <div className="bg-transparent min-h-screen pt-8">
             {/* Top Sub-Navigation Filter */}
             <div className="border-b border-gray-200 mb-16">
                 <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -67,8 +67,8 @@ const Blogs = () => {
                                     onClick={() => setActiveTab(tab.displayName)}
                                     className={`transition-colors relative pb-4 tracking-wide font-medium
                                         ${activeTab === tab.displayName
-                                            ? "text-[#e71c24] before:absolute before:bottom-0 before:left-0 before:w-full before:h-[3px] before:bg-[#e71c24]"
-                                            : "hover:text-[#e71c24]"
+                                            ? "text-[#e0b855] before:absolute before:bottom-0 before:left-0 before:w-full before:h-[3px] before:bg-[#e0b855]"
+                                            : "hover:text-[#e0b855]"
                                         }`}
                                 >
                                     {tab.displayName}

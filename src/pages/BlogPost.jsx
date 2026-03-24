@@ -24,7 +24,7 @@ const BlogPost = () => {
         </h1>
         <Link
           to="/design-ideas/modular-kitchen-design-ideas"
-          className="bg-[#e71c24] text-white px-6 py-2 rounded font-semibold hover:bg-[#c41920]"
+          className="bg-[#e0b855] text-white px-6 py-2 rounded font-semibold hover:bg-[#c4a14a]"
         >
           Return to Kitchen Ideas
         </Link>
@@ -47,7 +47,7 @@ const BlogPost = () => {
         </p>
         <Link
           to={`/design-ideas/${categoryId}`}
-          className="bg-[#e71c24] text-white px-6 py-2 rounded font-semibold hover:bg-[#c41920]"
+          className="bg-[#e0b855] text-white px-6 py-2 rounded font-semibold hover:bg-[#c4a14a]"
         >
           Back to {categoryData.title}
         </Link>
@@ -56,21 +56,21 @@ const BlogPost = () => {
   }
 
   return (
-    <div className="bg-white min-h-screen pb-20 pt-10">
+    <div className="bg-transparent min-h-screen pb-20 pt-10">
       {/* Header / Breadcrumb Section */}
       <div className="max-w-4xl mx-auto px-4 md:px-8 mb-10 text-center">
         {/* Breadcrumb text */}
-        <div className="flex justify-center flex-wrap items-center text-sm text-gray-400 gap-2 mb-8">
+        <div className="flex justify-center flex-wrap items-center text-sm text-gray-400 gap-2 mb-8 font-cinzel">
           <Link
             to="/design-ideas"
-            className="hover:text-[#e71c24] transition-colors"
+            className="hover:text-[#e0b855] transition-colors"
           >
             The Design Journal
           </Link>
           <span>»</span>
           <Link
             to={`/design-ideas/${categoryId}`}
-            className="hover:text-[#e71c24] transition-colors"
+            className="hover:text-[#e0b855] transition-colors"
           >
             {categoryData.title}
           </Link>
@@ -81,7 +81,7 @@ const BlogPost = () => {
         </div>
 
         <p className="text-[11px] font-semibold text-gray-500 tracking-wider mb-4 uppercase">
-          in <span className="text-[#e71c24]">{blog.category}</span> -{" "}
+          in <span className="text-[#e0b855]">{blog.category}</span> -{" "}
           {blog.date} - {blog.readTime}
         </p>
         <h1 className="text-3xl md:text-5xl font-semibold text-[#1a1a1a] mb-6 tracking-tight leading-tight">
@@ -119,7 +119,7 @@ const BlogPost = () => {
       <div className="max-w-3xl mx-auto px-4 md:px-8 mt-16 pt-8 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-6 mb-20">
         <Link
           to={`/design-ideas/${categoryId}`}
-          className="text-sm font-semibold tracking-widest text-[#e71c24] border border-[#e71c24] px-6 py-2 rounded hover:bg-[#e71c24] hover:text-white transition-colors duration-300"
+          className="text-sm font-semibold tracking-widest text-[#e0b855] border border-[#e0b855] px-6 py-2 rounded hover:bg-[#e0b855] hover:text-white transition-colors duration-300"
         >
           BACK TO IDEAS
         </Link>

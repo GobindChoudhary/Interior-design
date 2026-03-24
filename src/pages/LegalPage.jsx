@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
         This page is under construction. Our privacy policy will be available
         here soon.
       </p>
-      <Link to="/" className="text-[#e71c24] hover:underline font-medium">
+      <Link to="/" className="text-[#e0b855] hover:underline font-medium">
         &larr; Back to Home
       </Link>
     </div>

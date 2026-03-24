@@ -42,7 +42,7 @@ const ModularKitchenIcon = () => (
     <path
       d="M40 8L28 24H52L40 8Z"
       fill="white"
-      stroke="#e71c24"
+      stroke="#e0b855"
       strokeWidth="2.5"
       strokeLinejoin="round"
     />
@@ -69,8 +69,8 @@ const WardrobeIcon = () => (
     <line x1="40" y1="16" x2="40" y2="64" stroke="#212529" strokeWidth="2.5" />
     <line x1="20" y1="36" x2="60" y2="36" stroke="#212529" strokeWidth="2.5" />
     {/* Handles (Red) */}
-    <rect x="34" y="40" width="2" height="8" fill="#e71c24" />
-    <rect x="44" y="40" width="2" height="8" fill="#e71c24" />
+    <rect x="34" y="40" width="2" height="8" fill="#e0b855" />
+    <rect x="44" y="40" width="2" height="8" fill="#e0b855" />
   </svg>
 );
 
@@ -103,7 +103,7 @@ const CrockeryIcon = () => (
       stroke="#212529"
       strokeWidth="2"
     />
-    <path d="M26 44C26 44 26 48 30 48C34 48 34 44 34 44H26Z" fill="#e71c24" />
+    <path d="M26 44C26 44 26 48 30 48C34 48 34 44 34 44H26Z" fill="#e0b855" />
     <rect
       x="44"
       y="20"
@@ -130,7 +130,7 @@ const SpaceSavingIcon = () => (
       strokeWidth="2.5"
       strokeLinejoin="round"
     />
-    <rect x="36" y="24" width="8" height="12" fill="#e71c24" />
+    <rect x="36" y="24" width="8" height="12" fill="#e0b855" />
     <path
       d="M28 36V16H52V36"
       stroke="#212529"
@@ -194,7 +194,7 @@ const TVUnitIcon = () => (
       y1="52"
       x2="26"
       y2="52"
-      stroke="#e71c24"
+      stroke="#e0b855"
       strokeWidth="2"
       strokeLinecap="round"
     />
@@ -203,7 +203,7 @@ const TVUnitIcon = () => (
       y1="52"
       x2="58"
       y2="52"
-      stroke="#e71c24"
+      stroke="#e0b855"
       strokeWidth="2"
       strokeLinecap="round"
     />
@@ -266,7 +266,7 @@ const StudyIcon = () => (
     <path
       d="M48 40L52 32H60L56 40"
       fill="white"
-      stroke="#e71c24"
+      stroke="#e0b855"
       strokeWidth="2"
       strokeLinejoin="round"
     />
@@ -303,14 +303,14 @@ const FalseCeilingIcon = () => (
     <path
       d="M30 48H34L36 54H28L30 48Z"
       fill="white"
-      stroke="#e71c24"
+      stroke="#e0b855"
       strokeWidth="2"
       strokeLinejoin="round"
     />
     <path
       d="M46 48H50L52 54H44L46 48Z"
       fill="white"
-      stroke="#e71c24"
+      stroke="#e0b855"
       strokeWidth="2"
       strokeLinejoin="round"
     />
@@ -336,7 +336,7 @@ const LightIcon = () => (
     <path
       d="M24 52C24 44 32 40 40 40C48 40 56 44 56 52H24Z"
       fill="white"
-      stroke="#e71c24"
+      stroke="#e0b855"
       strokeWidth="2.5"
       strokeLinejoin="round"
     />
@@ -369,7 +369,7 @@ const WallpaperIcon = () => (
     {/* Peeling effect */}
     <path
       d="M24 24L40 40H24V24Z"
-      fill="#e71c24"
+      fill="#e0b855"
       stroke="#212529"
       strokeWidth="2.5"
       strokeLinejoin="round"
@@ -425,7 +425,7 @@ const WallPaintIcon = () => (
       height="16"
       rx="2"
       fill="white"
-      stroke="#e71c24"
+      stroke="#e0b855"
       strokeWidth="2.5"
     />
     {/* Paint drop */}
@@ -435,7 +435,7 @@ const WallPaintIcon = () => (
       strokeWidth="2"
       strokeLinecap="round"
     />
-    <circle cx="56" cy="46" r="2" fill="#e71c24" />
+    <circle cx="56" cy="46" r="2" fill="#e0b855" />
   </svg>
 );
 
@@ -458,7 +458,7 @@ const BathroomIcon = () => (
     <line x1="30" y1="20" x2="30" y2="28" stroke="#212529" strokeWidth="2.5" />
     <path
       d="M24 28H36L38 32H22L24 28Z"
-      fill="#e71c24"
+      fill="#e0b855"
       stroke="#212529"
       strokeWidth="2.5"
       strokeLinejoin="round"
@@ -515,9 +515,9 @@ const PoojaIcon = () => (
       strokeWidth="2.5"
     />
     {/* Temple Top / Bells */}
-    <path d="M40 16L36 24H44L40 16Z" fill="#e71c24" />
-    <circle cx="28" cy="40" r="2" fill="#e71c24" />
-    <circle cx="52" cy="40" r="2" fill="#e71c24" />
+    <path d="M40 16L36 24H44L40 16Z" fill="#e0b855" />
+    <circle cx="28" cy="40" r="2" fill="#e0b855" />
+    <circle cx="52" cy="40" r="2" fill="#e0b855" />
   </svg>
 );
 
@@ -558,14 +558,14 @@ const FoyerIcon = () => (
       stroke="#212529"
       strokeWidth="2.5"
     />
-    <circle cx="52" cy="24" r="2" fill="#e71c24" />
-    <circle cx="52" cy="32" r="2" fill="#e71c24" />
-    <circle cx="52" cy="40" r="2" fill="#e71c24" />
+    <circle cx="52" cy="24" r="2" fill="#e0b855" />
+    <circle cx="52" cy="32" r="2" fill="#e0b855" />
+    <circle cx="52" cy="40" r="2" fill="#e0b855" />
     {/* Planter */}
     <path
       d="M26 32H34L32 40H28L26 32Z"
       fill="white"
-      stroke="#e71c24"
+      stroke="#e0b855"
       strokeWidth="2"
       strokeLinejoin="round"
     />
@@ -602,7 +602,7 @@ const MovableIcon = () => (
       width="16"
       height="4"
       fill="white"
-      stroke="#e71c24"
+      stroke="#e0b855"
       strokeWidth="2"
     />
     <line x1="56" y1="36" x2="56" y2="60" stroke="#212529" strokeWidth="2.5" />
@@ -635,7 +635,7 @@ export default function EndToEndSolutions() {
           End-to-end home interior solutions
         </h2>
 
-        {/* Responsive Grid matching the HomeLane aesthetic */}
+        {/* Responsive Grid matching the Leonex Interio aesthetic */}
         <div className="flex flex-wrap items-start justify-center gap-y-12 gap-x-6 md:gap-x-12 lg:gap-x-16 max-w-5xl mx-auto">
           {solutions.map((item, i) => (
             <div
@@ -648,7 +648,7 @@ export default function EndToEndSolutions() {
               </IconWrapper>
 
               {/* Label */}
-              <p className="text-[13px] md:text-[14px] font-medium text-gray-700 text-center leading-snug group-hover:text-[#e71c24] transition-colors">
+              <p className="text-[13px] md:text-[14px] font-medium text-gray-700 text-center leading-snug group-hover:text-[#e0b855] transition-colors">
                 {item.label}
               </p>
             </div>
